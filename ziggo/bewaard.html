@@ -1,6 +1,4 @@
-===============================================================================================
-                                    Web Reader by LikeJeppy                                    
-===============================================================================================
+
 
 
 
@@ -201,6 +199,9 @@ window.startupSettings = {
 
 </head>
 <body class="hover ">
+	<script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js">
+	</script><script>confetti.stop()</script>
+	
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute" class="spriteSVG">
     <symbol id="alert" viewBox="-1 -1 34 34"> <g><path d="M27 26.75H5a1.64 1.64 0 0 1-1.41-2.48L14.59 6a1.64 1.64 0 0 1 2.81 0l11 18.22a1.64 1.64 0 0 1-1.4 2.53zm-11-20a.13.13 0 0 0-.12.07L4.88 25a.14.14 0 0 0 .12.21h22a.14.14 0 0 0 .12-.21l-11-18.22a.13.13 0 0 0-.12-.03z"></path><path d="M16 23.15A1.19 1.19 0 1 1 17.19 22 1.21 1.21 0 0 1 16 23.15zm.66-3.24h-1.32L15 17.23v-4h2v4l-.34 2.68z"></path></g> </symbol>
     <symbol id="aligned-content" viewBox="-1 -1 34 34"> <g transform="translate(1 5)" fill-rule="evenodd"><path d="M11 1.75a.25.25 0 0 0-.25.25v18c0 .138.112.25.25.25h8a.25.25 0 0 0 .25-.25V2a.25.25 0 0 0-.25-.25h-8zm8 20h-8c-.965 0-1.75-.785-1.75-1.75V2c0-.965.785-1.75 1.75-1.75h8c.965 0 1.75.785 1.75 1.75v18c0 .965-.785 1.75-1.75 1.75z"></path><path d="M10 18.75H6.091c-1.032 0-1.841-.686-1.841-1.562V4.812c0-.876.809-1.562 1.841-1.562H10a.75.75 0 0 1 0 1.5H6.091c-.21 0-.333.086-.354.117l.013 12.321c.007-.029.134.062.341.062H10a.75.75 0 0 1 0 1.5"></path><path d="M5 16.75H1.721C.91 16.75.25 16.015.25 15.111V6.889c0-.904.66-1.639 1.471-1.639H5a.75.75 0 0 1 0 1.5H1.75c.024.01 0 .061 0 .139v8.222c0 .098.038.152.048.161L5 15.25a.75.75 0 0 1 0 1.5M23.91 18.75H20a.75.75 0 0 1 0-1.5h3.91c.21 0 .332-.086.353-.117L24.25 4.812c-.012.026-.134-.062-.34-.062H20a.75.75 0 0 1 0-1.5h3.91c1.031 0 1.84.686 1.84 1.562v12.376c0 .876-.809 1.562-1.84 1.562"></path><path d="M28.28 16.75H25a.75.75 0 0 1 0-1.5h3.25c-.025-.01 0-.061 0-.139V6.889c0-.098-.038-.152-.048-.161L25 6.75a.75.75 0 0 1 0-1.5h3.28c.81 0 1.47.735 1.47 1.639v8.222c0 .904-.66 1.639-1.47 1.639"></path></g> </symbol>
@@ -381,6 +382,22 @@ window.startupSettings = {
             <span class="navigation-title">Instellingen</span>
             <span class="loading-overlay loading-progress"></span>
         </a>
+
+        <a class="navigation-item  " onclick="if (confetti.isRunning() == true){
+        	confetti.stop();
+        } else{
+            confetti.start();
+    }">
+            <svg class="medium-icon navigation-icon settings">
+                <use xlink:href="#settings"></use>
+            </svg>
+            <svg class="medium-icon navigation-icon-active settings-active">
+                <use xlink:href="#settings-active"></use>
+            </svg>
+
+            <span class="navigation-title">Confetti</span>
+            <span class="loading-overlay loading-progress"></span>
+        </a>
     </nav>
 
 </div>
@@ -539,6 +556,3 @@ window.startupSettings = {
 
 </html>
 
-===============================================================================================
-                                    Web Reader by LikeJeppy                                    
-===============================================================================================
