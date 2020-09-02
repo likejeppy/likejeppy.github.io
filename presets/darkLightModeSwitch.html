@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>ModeToggle</title>
+    <meta name="description" content="Roughly 155 characters">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+
+<body onload="darkLightToggle(), bName(), switchTest()"> 
+	<div align="center">
+	<style>
+		body {
+  padding: 25px;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: rgb(40,40,40);
+  color: white;
+}
+	</style>
+
+	<script>function darkLightToggle() {
+  	var element = document.body;
+  	element.classList.toggle("dark-mode");} 
+  	</script>
+
+	<h2>Testing this now, eh?</h2>
+	<p>Wank this is stank</p>
+
+  <script>
+    var modeSwitched = false;
+  </script>
+  <script>function bName() {var buttonText = "Dark Mode"
+    if(modeSwitched == false)                // d = dark, l = light
+      {buttonText = "Light Mode", modeSwitched = true;} //switched to d mode
+    else {buttonText = "Dark Mode", modeSwitched = false;} //switched to l mode
+      document.getElementById("buttonId").innerHTML = buttonText};
+  </script>
+
+  <script>function switchTest()
+    {var element = document.getElementById("buttonId");
+    element.classList.toggle("toLight");}
+  </script>
+
+  <a style="text-decoration:none;" id="buttonId" class="btn toDark unselectable" onclick="switchTest(),darkLightToggle(), bName()"></a>
+  <style>
+   .btn {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+  background-color: rgb(231,231,231); color: black;} /* Gray */
+  .btn:hover {background: rgb(216,216,216);
+}
+.toLight {background-color: rgb(51,51,51); color: white}
+.toLight:hover {background-color: rgb(61,61,61);}
+   </style> 
+
+   <style> 
+   	.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;}
+   </style>
+</body> 
+</html> 
