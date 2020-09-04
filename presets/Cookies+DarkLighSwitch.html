@@ -125,6 +125,7 @@
       var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
       var btnColourCode = '#f1d600'; /* #f1d600 = yellow */
       var btnTextColourCode = '#000000'; /* #000000 = black */
+      var acceptedCookies = false;
     </script>
     <script>function changeCookies() {
       if(modeSwitched == false) /* dark mode */
@@ -182,8 +183,16 @@
       },     
     })
 
+    cc.on( "statusChanged", function () {
+      acceptedCookies = true;
+    })
+
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText();
+      if(acceptedCookies == false) 
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText();}
+      else
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText();
+      }
     };
   }
   </script>
