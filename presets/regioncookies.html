@@ -33,7 +33,7 @@
     const cc = new CookieConsent({
       type: 'info',
       theme: 'classic',
-      /* regionLaw: false, if 'false', it should only show up when required by law */
+      location: true,
       showLink: true, /* set to 'false' to remove 'Learn more' with link*/
       palette: {
         popup: { background: "#222222", text: "#ffffff", link: '#d3d3d3'},
@@ -58,9 +58,13 @@
         policy: 'Cookie Policy',
         target: '_blank',
       },
+      cookie: {
+     domain: '', /* change to 'local' to keep showing popup, else keep empty*/
+     expiryDays: 1,
+      },
       law: {
-     regionalLaw: false,
-    },
+     regionalLaw: false, /*should only show popup when required by law via location*/
+      },
     })
 
     document.getElementById('btn-open').onclick = function () {
