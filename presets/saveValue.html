@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Save Value to Local Storage</title>
+    <meta name="description" content="Roughly 155 characters">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+  
+  <body>
+    <script>function testLoad() {
+		var tmp= localStorage.getItem('myKey');
+		alert('Current value: ' + tmp);}
+	</script>
+
+	<script>function testChange() {
+		var tmp= localStorage.getItem('myKey');
+		if(tmp === 'False') {
+		localStorage.setItem('myKey', "True");
+		alert('Successfully Changed to True!');}
+		else if(tmp === 'True') {
+		localStorage.setItem('myKey', "False");
+		alert('Successfully Changed to False!');}
+		else if(tmp === null) {
+		localStorage.setItem('myKey', "False");
+		alert('Value was null, but has now been set to False');}}
+	</script>
+
+	<div align="center">
+		<button onclick="testLoad();">Load/Check</button>
+		<button onclick="testChange();">Change/Save</button>
+	</div>
+  </body>
+</html>

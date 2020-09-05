@@ -11,7 +11,17 @@
     <script src="script.js"></script>
   </head>
 
-<body onload="bName(), switchMainText(), switchSecondaryText(), loadCookies()"> 
+<body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies()"> 
+  <script>function checkCookies() {
+    var tmp= localStorage.getItem('cookiesKey');
+    /* add: '
+    localStorage.setItem('cookiesKey', "False");
+    alert(tmp);
+    'to change value back to 'False' to show popup again */
+    if(tmp === null) {
+    localStorage.setItem('cookiesKey', "False");}}
+   </script>
+
   <div align="center">
   <style>
     body {
@@ -125,7 +135,6 @@
       var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
       var btnColourCode = '#f1d600'; /* #f1d600 = yellow */
       var btnTextColourCode = '#000000'; /* #000000 = black */
-      var acceptedCookies = false;
     </script>
     <script>function changeCookies() {
       if(modeSwitched == false) /* dark mode */
@@ -143,6 +152,8 @@
   <script src="https://likejeppy.github.io/assets/script.js"></script>
   <script src="https://likejeppy.github.io/assets/cookieconsent.min.js"></script>
   <script>function loadCookies() {
+    var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False'){
     const cc = new CookieConsent({
       type: 'info',
       theme: 'classic',
@@ -173,7 +184,7 @@
       },
       cookie: {
       domain: '', /* change to 'local' to keep showing popup, else keep empty*/
-      expiryDays: 1,
+      expiryDays: -1,
       },
       location: false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
 
@@ -184,17 +195,27 @@
     })
 
     cc.on( "statusChanged", function () {
-      acceptedCookies = true;
+      var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False') {
+    localStorage.setItem('cookiesKey', "True");}
     })
 
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      if(acceptedCookies == false) 
+    var tmp= localStorage.getItem('cookiesKey');
+      if(tmp === 'False')
         {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText();}
       else
       {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText();
       }
     };
   }
+  else
+    {
+    document.getElementById('buttonSwitchModesId').onclick = function () {
+      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText();
+    };
+  }
+}
   </script>
 </div>
 </body> 
