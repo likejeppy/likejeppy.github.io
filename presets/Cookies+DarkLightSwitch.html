@@ -225,6 +225,13 @@
   </script>
 
   <script>
+  	window.onunload = function() {
+  	if(modeSwitched == false) /* dark mode */ {
+  		localStorage.setItem('darkMode', "True");
+  	}else /* light mode */{
+  		localStorage.setItem('darkMode', "False");
+  	}
+}
 	window.onbeforeunload = function() {
   	if(modeSwitched == false) /* dark mode */ {
   		localStorage.setItem('darkMode', "True");
