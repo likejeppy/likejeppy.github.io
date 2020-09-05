@@ -203,16 +203,16 @@
     document.getElementById('buttonSwitchModesId').onclick = function () {
     var tmp= localStorage.getItem('cookiesKey');
       if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText();}
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode();}
       else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText();
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText(), changeDarkMode();
       }
     };
   }
   else
     {
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText();
+      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText(), changeDarkMode();
     };
   }
 }
@@ -224,20 +224,17 @@
   		document.getElementById('buttonSwitchModesId').click();}}
   </script>
 
+  <script>function changeDarkMode() {
+  	if(modeSwitched == false) /* dark mode */ {
+  		localStorage.setItem('darkMode', "True");
+  	}else /* light mode */{
+  		localStorage.setItem('darkMode', "False");
+  	}}
+  </script>
+
   <script>
-  	window.onunload = function() {
-  	if(modeSwitched == false) /* dark mode */ {
-  		localStorage.setItem('darkMode', "True");
-  	}else /* light mode */{
-  		localStorage.setItem('darkMode', "False");
-  	}
-}
 	window.onbeforeunload = function() {
-  	if(modeSwitched == false) /* dark mode */ {
-  		localStorage.setItem('darkMode', "True");
-  	}else /* light mode */{
-  		localStorage.setItem('darkMode', "False");
-  	}
+  	changeDarkMode();
 }
   </script>
 </div>
