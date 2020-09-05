@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Roughly 155 characters">
+    <link rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+    data-cfasync="false"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+  
+  <body>
+  	<script>
+    // Reads the value of a cookie by name or returns empty string
+    function getCookie(name) {
+        var b = document.cookie.match('(^|[^;]+)\\s*' + name + '\\s*=\\s*([^;]+)');
+        return b ? b.pop() : '';
+    }
+
+    // Actually starting analytics up
+    function addAnalytics() {
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXXXXX-X');
+    }
+
+    // Waiting for the load event
+    window.addEventListener("load", function () {
+        // Reading "cookieconsent_status" cookie
+        const cookieConsent = getCookie('cookieconsent_status');
+
+        // changing var 'testNameCC' to 'cookieConsent' to use as later reference
+        testNameCC = cookieConsent;
+
+        // Initialise cookie consent banner
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#efefef",
+                    "text": "#404040",
+                    "link": "#5F5F5F"
+                },
+                "button": {
+                    "background": "#8ec760",
+                    "text": "#ffffff"
+                }
+            },
+            "type": "info", //can also be 'opt-in'/'opt-out'
+            "theme": 'classic',
+            "showLink": true, /* set to 'false' to remove 'Learn more' with link*/
+            "content": {
+                "header": 'Cookies used on the website!',
+        		"message": 'This website uses cookies to improve your experience.',
+       	 		"dismiss": 'Got it!', /* not used with type: 'opt-in'/'opt-out' */
+        		"allow": 'Allow cookies', /* not used with type: 'info' */
+        		"deny": 'Decline', /* not used with type: 'info' */
+        		"link": 'Learn more',
+        		"href": 'https://www.cookiesandyou.com',
+        		"close": '&#x274c;',
+        		"policy": 'Cookie Policy',
+        		"target": '_blank',
+            },
+            "cookie": {
+      			"domain": '', /* change to 'local' to keep showing popup, else keep empty*/
+      			"expiryDays": 1,
+      		},
+      		"location": false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
+
+        	If a service succeeds, then the two letter country code is passed to the ‘Law’ module, with changes your popup options depending on the cookie laws in the country code.*/
+      		"law": {
+      			"regionalLaw": true, /* false = only show popup when required by law (checked via location), true = always show popup */
+      		},     
+            // Reload the page on user choice to make sure cookie is set
+            onStatusChange: function (status, chosenBefore) {
+                location.reload();
+            }
+        })
+    });
+</script>
+<div align="center">
+<button onclick="if(testNameCC == '') {
+	alert('No option chosen yet');
+}else{alert(testNameCC);}">TestMe</button>
+
+<script>var testNameCC = 'nothing'</script>
+</div>
+  </body>
+</html>
