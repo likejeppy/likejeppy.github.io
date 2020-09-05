@@ -11,7 +11,7 @@
     <script src="script.js"></script>
   </head>
 
-<body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies()"> 
+<body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies(), checkMode()"> 
   <script>function checkCookies() {
     var tmp= localStorage.getItem('cookiesKey');
     /* add: '
@@ -215,6 +215,22 @@
       bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText();
     };
   }
+}
+  </script>
+
+  <script>function checkMode() {
+  	  	var mode= localStorage.getItem('darkMode');
+  	  	if(mode === 'True') {
+  		document.getElementById('buttonSwitchModesId').click();}}
+  </script>
+
+  <script>
+	window.onbeforeunload = function() {
+  	if(modeSwitched == false) /* dark mode */ {
+  		localStorage.setItem('darkMode', "True");
+  	}else /* light mode */{
+  		localStorage.setItem('darkMode', "False");
+  	}
 }
   </script>
 </div>
