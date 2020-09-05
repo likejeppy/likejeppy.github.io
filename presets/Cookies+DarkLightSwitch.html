@@ -231,6 +231,12 @@
   		localStorage.setItem('darkMode', "False");
   	}}
   </script>
+
+  <script>
+	window.onbeforeunload = function() {
+  	changeDarkMode();
+}
+  </script>
 </div>
 </body> 
 </html> 
