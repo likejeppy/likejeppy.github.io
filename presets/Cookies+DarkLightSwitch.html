@@ -22,6 +22,95 @@
    </script>
 
   <div align="center">
+  <script>
+      var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
+      var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
+      var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
+      var btnColourCode = '#f1d600'; /* #f1d600 = yellow */
+      var btnTextColourCode = '#000000'; /* #000000 = black */
+    </script>
+    <script>function changeCookies() {
+      if(modeSwitched == false) /* dark mode */
+        {bgColourCode = '#222222', bgTextColourCode = '#ffffff', 
+        bgLinkColourCode = '#d3d3d3', btnColourCode = '#f1d600', 
+        btnTextColourCode = '#000000';}
+      else /* light mode */
+        {bgColourCode = '#eaeaeb', bgTextColourCode = '#000000', 
+        bgLinkColourCode = '#2f2f2f', btnColourCode = '#f1d600', 
+        btnTextColourCode = '#000000';}}
+     </script>
+     <script>function openCookies() {cc.open()}</script>
+     <script>function closeCookies() {cc.close()}</script>
+
+  <script src="https://likejeppy.github.io/assets/script.js"></script>
+  <script src="https://likejeppy.github.io/assets/cookieconsent.min.js"></script>
+  <script>function loadCookies() {
+    var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False'){
+    const cc = new CookieConsent({
+      type: 'info',
+      theme: 'classic',
+      showLink: true, /* set to 'false' to remove 'Learn more' with link*/
+      palette: {
+        popup: { background: bgColourCode, text: bgTextColourCode, 
+          link: bgLinkColourCode},
+        button: { background: btnColourCode,text: btnTextColourCode }
+        /* light mode - 
+        (main) background: '#eaeaeb', text: '#000000', link: '#2f2f2f'
+        (button) background: '#f1d600', text: '#000000'
+            dark mode - 
+        (main) background: '#222222', text: '#ffffff', link: '#d3d3d3'
+        (button) background: '#f1d600', text: '#000000'
+        */
+      },
+      content: {
+        header: 'Cookies used on the website!',
+        message: 'This website uses cookies to improve your experience.',
+        dismiss: 'Got it!', /* not used with type: 'opt-in'/'opt-out' */
+        allow: 'Allow cookies', /* not used with type: 'info' */
+        deny: 'Decline', /* not used with type: 'info' */
+        link: 'Learn more',
+        href: 'https://www.cookiesandyou.com',
+        close: '&#x274c;',
+        policy: 'Cookie Policy',
+        target: '_blank',
+      },
+      cookie: {
+      domain: '', /* change to 'local' to keep showing popup, else keep empty*/
+      expiryDays: -1, /* -1 = never expires */
+      },
+      location: false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
+
+        If a service succeeds, then the two letter country code is passed to the ‘Law’ module, with changes your popup options depending on the cookie laws in the country code.*/
+      law: {
+      regionalLaw: false, /* false = only show popup when required by law (checked via location), true = always show popup */
+      },     
+    })
+
+    cc.on( "statusChanged", function () {
+      var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False') {
+    localStorage.setItem('cookiesKey', "True");}
+    })
+
+    document.getElementById('buttonSwitchModesId').onclick = function () {
+    var tmp= localStorage.getItem('cookiesKey');
+      if(tmp === 'False')
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode();}
+      else
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText(), changeDarkMode();
+      }
+    };
+  }
+  else
+    {
+    document.getElementById('buttonSwitchModesId').onclick = function () {
+      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText(), changeDarkMode();
+    };
+  }
+}
+  </script>
+  
   <style>
     body {
   padding: 25px;
@@ -127,95 +216,6 @@
     -ms-user-select: none;
     user-select: none;}
    </style>
-
-  <script>
-      var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
-      var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
-      var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
-      var btnColourCode = '#f1d600'; /* #f1d600 = yellow */
-      var btnTextColourCode = '#000000'; /* #000000 = black */
-    </script>
-    <script>function changeCookies() {
-      if(modeSwitched == false) /* dark mode */
-        {bgColourCode = '#222222', bgTextColourCode = '#ffffff', 
-        bgLinkColourCode = '#d3d3d3', btnColourCode = '#f1d600', 
-        btnTextColourCode = '#000000';}
-      else /* light mode */
-        {bgColourCode = '#eaeaeb', bgTextColourCode = '#000000', 
-        bgLinkColourCode = '#2f2f2f', btnColourCode = '#f1d600', 
-        btnTextColourCode = '#000000';}}
-     </script>
-     <script>function openCookies() {cc.open()}</script>
-     <script>function closeCookies() {cc.close()}</script>
-
-  <script src="https://likejeppy.github.io/assets/script.js"></script>
-  <script src="https://likejeppy.github.io/assets/cookieconsent.min.js"></script>
-  <script>function loadCookies() {
-    var tmp= localStorage.getItem('cookiesKey');
-    if(tmp === 'False'){
-    const cc = new CookieConsent({
-      type: 'info',
-      theme: 'classic',
-      showLink: true, /* set to 'false' to remove 'Learn more' with link*/
-      palette: {
-        popup: { background: bgColourCode, text: bgTextColourCode, 
-          link: bgLinkColourCode},
-        button: { background: btnColourCode,text: btnTextColourCode }
-        /* light mode - 
-        (main) background: '#eaeaeb', text: '#000000', link: '#2f2f2f'
-        (button) background: '#f1d600', text: '#000000'
-            dark mode - 
-        (main) background: '#222222', text: '#ffffff', link: '#d3d3d3'
-        (button) background: '#f1d600', text: '#000000'
-        */
-      },
-      content: {
-        header: 'Cookies used on the website!',
-        message: 'This website uses cookies to improve your experience.',
-        dismiss: 'Got it!', /* not used with type: 'opt-in'/'opt-out' */
-        allow: 'Allow cookies', /* not used with type: 'info' */
-        deny: 'Decline', /* not used with type: 'info' */
-        link: 'Learn more',
-        href: 'https://www.cookiesandyou.com',
-        close: '&#x274c;',
-        policy: 'Cookie Policy',
-        target: '_blank',
-      },
-      cookie: {
-      domain: '', /* change to 'local' to keep showing popup, else keep empty*/
-      expiryDays: -1, /* -1 = never expires */
-      },
-      location: false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
-
-        If a service succeeds, then the two letter country code is passed to the ‘Law’ module, with changes your popup options depending on the cookie laws in the country code.*/
-      law: {
-      regionalLaw: false, /* false = only show popup when required by law (checked via location), true = always show popup */
-      },     
-    })
-
-    cc.on( "statusChanged", function () {
-      var tmp= localStorage.getItem('cookiesKey');
-    if(tmp === 'False') {
-    localStorage.setItem('cookiesKey', "True");}
-    })
-
-    document.getElementById('buttonSwitchModesId').onclick = function () {
-    var tmp= localStorage.getItem('cookiesKey');
-      if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode();}
-      else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText(), changeDarkMode();
-      }
-    };
-  }
-  else
-    {
-    document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText(), changeDarkMode();
-    };
-  }
-}
-  </script>
 
   <script>function checkMode() {
   	  	var mode= localStorage.getItem('darkMode');
