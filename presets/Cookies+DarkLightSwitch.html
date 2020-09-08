@@ -111,6 +111,26 @@
 }
   </script>
   
+  <script>function checkMode() {
+  	  	var mode= localStorage.getItem('darkMode');
+  	  	if(mode === 'True') {
+  		document.getElementById('buttonSwitchModesId').click();}}
+  </script>
+
+  <script>function changeDarkMode() {
+  	if(modeSwitched == false) /* dark mode */ {
+  		localStorage.setItem('darkMode', "True");
+  	}else /* light mode */{
+  		localStorage.setItem('darkMode', "False");
+  	}}
+  </script>
+
+  <script>
+	window.onbeforeunload = function() {
+  	changeDarkMode();
+}
+  </script>
+
   <style>
     body {
   padding: 25px;
@@ -216,26 +236,6 @@
     -ms-user-select: none;
     user-select: none;}
    </style>
-
-  <script>function checkMode() {
-  	  	var mode= localStorage.getItem('darkMode');
-  	  	if(mode === 'True') {
-  		document.getElementById('buttonSwitchModesId').click();}}
-  </script>
-
-  <script>function changeDarkMode() {
-  	if(modeSwitched == false) /* dark mode */ {
-  		localStorage.setItem('darkMode', "True");
-  	}else /* light mode */{
-  		localStorage.setItem('darkMode', "False");
-  	}}
-  </script>
-
-  <script>
-	window.onbeforeunload = function() {
-  	changeDarkMode();
-}
-  </script>
 </div>
 </body> 
 </html> 
