@@ -12,7 +12,7 @@
 
 <body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies(), checkMode()"> 
 
-  <!-- [START] 'cookies preset' -->
+<!-- [START] 'cookies preset' -->
 
   <script>function checkCookies() {
     var tmp= localStorage.getItem('cookiesKey');
@@ -23,8 +23,6 @@
     if(tmp === null) {
     localStorage.setItem('cookiesKey', "False");}}
    </script>
-
-  <div align="center">
 
   <script>
       var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
@@ -135,9 +133,10 @@
 }
   </script>
 
-  <!-- [END] 'cookies preset' -->
+<!-- [END] 'cookies preset' -->
 
-  <!-- [START] 'dark/light mode preset' -->
+
+<!-- [START] 'dark/light mode preset' -->
 
   <style>
     body {
@@ -233,10 +232,10 @@
     user-select: none;}
    </style>
 
-  <!-- [END] 'dark/light mode preset' -->
+<!-- [END] 'dark/light mode preset' -->
 
 
-  <!-- [START] 'main web design' -->
+<!-- [START] 'main web design' -->
 
 <!--
 [CLASS]
@@ -254,11 +253,13 @@ This can be added to anything with text and can be especially useful on buttons
 [ID]
 -'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. IMPORTANT: this can only be applied to one (1) button!
  -->
-
+ <div align="center">
   <h2 class="mainTextDark">Testing this now, eh?</h2>
   <h2 class="mainTextDark">neef</h2>
   <p class="secondaryTextDark">Wank this is stank</p>
+ </div>
 
+ <div align="center">
   <a style="text-decoration:none;" id="buttonSwitchModesId" 
   class="btn unselectable"></a>
   <br class="unselectable">
@@ -266,9 +267,9 @@ This can be added to anything with text and can be especially useful on buttons
   <a style="text-decoration:none;" class="btn unselectable" 
   onclick="alert('&quot;insert function&quot;')" 
   >Normal Button</a>
-
-  <!-- [END] 'main web design' -->
-
  </div>
+
+<!-- [END] 'main web design' -->
+
 </body> 
 </html> 

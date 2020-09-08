@@ -25,6 +25,7 @@
    </script>
 
   <div align="center">
+
   <script>
       var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
       var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
@@ -113,29 +114,28 @@
   }
 }
   </script>
-  
+
   <script>function checkMode() {
-  	  	var mode= localStorage.getItem('darkMode');
-  	  	if(mode === 'True') {
-  		document.getElementById('buttonSwitchModesId').click();}}
+        var mode= localStorage.getItem('darkMode');
+        if(mode === 'True') {
+      document.getElementById('buttonSwitchModesId').click();}}
   </script>
 
   <script>function changeDarkMode() {
-  	if(modeSwitched == false) /* dark mode */ {
-  		localStorage.setItem('darkMode', "True");
-  	}else /* light mode */{
-  		localStorage.setItem('darkMode', "False");
-  	}}
+    if(modeSwitched == false) /* dark mode */ {
+      localStorage.setItem('darkMode', "True");
+    }else /* light mode */{
+      localStorage.setItem('darkMode', "False");
+    }}
   </script>
 
   <script>
-	window.onbeforeunload = function() {
-  	changeDarkMode();
+  window.onbeforeunload = function() {
+    changeDarkMode();
 }
   </script>
 
   <!-- [END] 'cookies preset' -->
-
 
   <!-- [START] 'dark/light mode preset' -->
 
@@ -205,7 +205,7 @@
 
   <script>function switchTest()
     {const buttonElement = document.getElementsByClassName('btn');
-      for (i = 0; i < buttonElement.length; i++) {
+      for (i = 0; i < buttonElement.length; i++) { 
       buttonElement[i].classList.toggle("toLight");}
     }
   </script>
@@ -235,9 +235,10 @@
 
   <!-- [END] 'dark/light mode preset' -->
 
+
   <!-- [START] 'main web design' -->
 
-  <!--
+<!--
 [CLASS]
 -'mainTextDark' = add this to all the headlines and titles on the site 
 (standard text colour = black&white)
@@ -259,14 +260,15 @@ This can be added to anything with text and can be especially useful on buttons
   <p class="secondaryTextDark">Wank this is stank</p>
 
   <a style="text-decoration:none;" id="buttonSwitchModesId" 
-  class="btn toDark unselectable"></a>
+  class="btn unselectable"></a>
   <br class="unselectable">
   <br class="unselectable"> 
-  <a style="text-decoration:none;" class="btn toDark unselectable" 
+  <a style="text-decoration:none;" class="btn unselectable" 
   onclick="alert('&quot;insert function&quot;')" 
   >Normal Button</a>
 
   <!-- [END] 'main web design' -->
-</div>
+
+ </div>
 </body> 
 </html> 
