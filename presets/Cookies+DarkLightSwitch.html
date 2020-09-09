@@ -12,6 +12,7 @@
 
 <body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies(), checkMode()"> 
 
+
   <!-- [START] 'cookies preset' -->
 
   <script>function checkCookies() {
@@ -23,7 +24,7 @@
     if(tmp === null) {
     localStorage.setItem('cookiesKey', "False");}}
    </script>
-
+   
   <script>
       var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
       var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
@@ -113,6 +114,11 @@
 }
   </script>
 
+  <!-- [END] 'cookies preset' -->
+
+
+  <!-- [START] 'dark/light mode preset' -->
+
   <script>function checkMode() {
         var mode= localStorage.getItem('darkMode');
         if(mode === 'True') {
@@ -133,21 +139,15 @@
 }
   </script>
 
-  <!-- [END] 'cookies preset' -->
-
-  <!-- [START] 'dark/light mode preset' -->
-
   <style>
     body {
   padding: 25px;
   background-color: rgb(249,249,249);
-  color: rgb(3,3,3);
   font-size: 25px;
 }
 
 .dark-mode {
   background-color: rgb(24,24,24);
-  color: rgb(255,255,255);
 }
   </style>
 
@@ -160,10 +160,14 @@
     .mainTextDark
     {
       color: rgb(255,255,255);
+      font-size: 1.5em;  /* similar to <h2> */
+	  font-weight: bolder; /* similar to <h2> */
     }
     .mainTextLight
     {
       color: rgb(3,3,3);
+      font-size: 1.5em; /* similar to <h2> */
+	  font-weight: bolder; /* similar to <h2> */
     }
   </style>
 
@@ -178,10 +182,12 @@
     .secondaryTextDark
     {
       color: rgb(144,144,144);
+      font-size: 1.0em; /* similar to <p> */
     }
     .secondaryTextLight
     {
       color: rgb(96,96,96);
+      font-size: 1.0em; /* similar to <p> */
     }
   </style>
     <script>function switchSecondaryText()
@@ -234,7 +240,7 @@
   <!-- [END] 'dark/light mode preset' -->
 
 
-  <!-- [START] 'main web design' -->
+  <!-- [START] 'info' -->
 
 <!--
 [CLASS]
@@ -251,11 +257,30 @@ This can be added to anything with text and can be especially useful on buttons
 
 [ID]
 -'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. IMPORTANT: this can only be applied to one (1) button!
+
+[FUNCTION]
+-'checkCookies' = checks the current cookie status and will change it to 'false' when it's 'null'. It will be 'null' when the user hasn't selected any cookie option yet, so we change it to 'false' to make clear the user hasn't accepted the cookies yet. This should be used on load.
+
+-'changeCookies' = changes the cookie popup colours when switching from light/dark mode. This should be used with other functions used for switching from light/dark.
  -->
 
-  <h2 style="text-align:center;" class="mainTextDark">Testing this now, eh?</h2>
-  <h2 style="text-align:center;" class="mainTextDark">neef</h2>
-  <p style="text-align:center;" class="secondaryTextDark">Wank this is stank</p>
+  <!-- [END] 'info' -->
+
+
+  <!-- [START] 'main web design' -->
+
+ <div align="center"> <!--can't add any spaces in code or it will break on mobile-->
+  <br class="unselectable">
+  <a class="mainTextDark">Testing this now, eh?</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="mainTextDark">neef</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="secondaryTextDark">Wank this is stank</a>
+  <br class="unselectable">
+  <br class="unselectable">
+ </div>
 
  <div align="center">
   <a style="text-decoration:none;" id="buttonSwitchModesId" 
