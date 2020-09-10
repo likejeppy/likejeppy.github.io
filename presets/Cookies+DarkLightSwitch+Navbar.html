@@ -12,7 +12,7 @@
     <script src="script.js"></script>
   </head>
 
-<body onload="checkCookies(), bName(), switchSecondaryText(), loadCookies(), checkMode()"> 
+<body onload="checkCookies(), bName(), loadCookies(), checkMode()"> 
 
   <!-- [START] 'cookies preset' -->
 
@@ -146,16 +146,16 @@
     </script>
 
     <script>function switchMainText()
-    {const mainTClass = document.getElementsByClassName('mainTextDark');
+    {const mainTClass = document.getElementsByClassName('mainTextLight');
       for (i = 0; i < mainTClass.length; i++) {
-      mainTClass[i].classList.toggle("mainTextLight");}
+      mainTClass[i].classList.toggle("mainTextDark");}
     }
   </script>
 
     <script>function switchSecondaryText()
-    {const secTClass = document.getElementsByClassName('secondaryTextDark');
+    {const secTClass = document.getElementsByClassName('secondaryTextLight');
       for (i = 0; i < secTClass.length; i++) {
-      secTClass[i].classList.toggle("secondaryTextLight");}
+      secTClass[i].classList.toggle("secondaryTextDark");}
     }
   </script>
 
@@ -259,13 +259,13 @@ function myFunction() {
 
  <div align="center"> <!--can't add any spaces in code or it will break on mobile-->
   <br class="unselectable">
-  <a class="mainTextDark">Testing this now, eh?</a>
+  <a class="mainTextLight">Testing this now, eh?</a>
   <br class="unselectable">
   <br class="unselectable">
-  <a class="mainTextDark">neef</a>
+  <a class="mainTextLight">neef</a>
   <br class="unselectable">
   <br class="unselectable">
-  <a class="secondaryTextDark">Wank this is stank</a>
+  <a class="secondaryTextLight">Wank this is stank</a>
   <br class="unselectable">
   <br class="unselectable">
  </div>
