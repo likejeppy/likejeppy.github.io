@@ -6,9 +6,14 @@
 body {
   margin: 0;
   font-size: 28px;
+  background-color: rgb(249,249,249);
+  color: rgb(3,3,3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark-mode{
   background-color: rgb(24,24,24);
   color: rgb(144,144,144);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
@@ -17,41 +22,8 @@ body {
   text-align: center;
 }
 
-#navbar {
-  overflow: hidden;
-  background-color: rgb(32,32,32);
-}
-
-#navbar a {
-  float: left;
-  display: block;
-  color: rgb(255,255,255);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-#navbar a:hover {
-  background-color: rgb(56,56,56);
-  color: white;
-}
-
-#navbar a.active {
-  background-color: rgb(56,56,56);
-  color: white;
-}
-
-#navbar a.active:hover {
-  background-color: rgb(76,76,76);
-  color: white;
-}
-
 .content {
   padding: 16px;
-}
-
-.small {
-  font-size: 11px;
 }
 
 .sticky {
@@ -68,6 +40,66 @@ body {
 </head>
 <body>
 
+<style>
+.navbarL {
+  overflow: hidden;
+  background-color: rgb(255,255,255);
+}
+
+.navbarL a {
+  float: left;
+  display: block;
+  color: rgb(3,3,3);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbarL a:hover {
+  background-color: rgb(242,242,242);
+  color: rgb(3,3,3);
+}
+
+.navbarL a.active {
+  background-color: rgb(229,229,229);
+  color: rgb(3,3,3);
+}
+
+.navbarL a.active:hover {
+  background-color: rgb(217,217,217);
+  color: rgb(3,3,3);
+}
+
+.navbarD {
+  overflow: hidden;
+  background-color: rgb(32,32,32);
+}
+
+.navbarD a {
+  float: left;
+  display: block;
+  color: rgb(255,255,255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbarD a:hover {
+  background-color: rgb(56,56,56);
+  color: white;
+}
+
+.navbarD a.active {
+  background-color: rgb(56,56,56);
+  color: white;
+}
+
+.navbarD a.active:hover {
+  background-color: rgb(76,76,76);
+  color: white;
+}
+</style>
+
 <script>function addSmall(){
 	const navbar = document.getElementsByClassName('nBar');
       for (i = 0; i < navbar.length; i++) {
@@ -82,19 +114,32 @@ body {
 }
 </script>
 
+<script>function changeMode() {
+	var element = document.body;
+	element.classList.toggle('dark-mode');
+
+	const bar = document.getElementsByClassName('navbarL');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("navbarD");}
+}</script>
+
 <div style="color: rgb(3,3,3)" class="header">
   <h2>Scroll Down</h2>
   <p>Scroll down to see the sticky effect.</p>
 </div>
 
-<div id="navbar" class="nBar">
+<div id="navbarS" class="navbarL nBar">
   <a class="active" href="javascript:void(0)">Home</a>
   <a href="javascript:void(0)">News</a>
   <a href="javascript:void(0)">Contact</a>
 </div>
 
+<div align="center">
+	<button onclick="changeMode()">Check it</button>
+</div>
+
 <div class="content">
-  <h3 style="color: rgb(255,255,255)">Sticky Navigation Example</h3>
+  <h3>Sticky Navigation Example</h3>
   <p>The navbar will stick to the top when you reach its scroll position.</p>
   <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
   <p>Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
@@ -112,7 +157,7 @@ body {
 <script>
 window.onscroll = function() {myFunction()};
 
-var navbar = document.getElementById("navbar");
+var navbar = document.getElementById("navbarS");
 var sticky = navbar.offsetTop;
 
 function myFunction() {
