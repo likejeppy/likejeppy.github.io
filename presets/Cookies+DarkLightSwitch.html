@@ -5,9 +5,50 @@
     <meta charset="utf-8">
     <title>Cookies+ModeToggle</title>
     <meta name="description" content="Cookies popup test with a light/dark mode toggle">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
     <script src="script.js"></script>
+    <style>
+body {
+  margin: 0;
+  font-size: 25px;
+  background-color: rgb(249,249,249);
+  color: rgb(3,3,3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dark-mode{
+  background-color: rgb(24,24,24);
+}
+
+.headerL {
+  color: rgb(3,3,3);
+  background-color: rgb(249,249,249);
+  padding: 30px;
+  text-align: center;
+}
+
+.headerD {
+  color: rgb(255,255,255);
+  background-color: rgb(24,24,24);
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.98;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
   </head>
 
 <body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies(), checkMode()"> 
@@ -99,16 +140,16 @@
     document.getElementById('buttonSwitchModesId').onclick = function () {
     var tmp= localStorage.getItem('cookiesKey');
       if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode();}
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchHeader();}
       else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText(), changeDarkMode();
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchHeader();
       }
     };
   }
   else
     {
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText(), changeDarkMode();
+      bName(), switchTest(), darkLightToggle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchHeader();
     };
   }
 }
@@ -138,18 +179,6 @@
     changeDarkMode();
 }
   </script>
-
-  <style>
-    body {
-  padding: 25px;
-  background-color: rgb(249,249,249);
-  font-size: 25px;
-}
-
-.dark-mode {
-  background-color: rgb(24,24,24);
-}
-  </style>
 
   <script>function darkLightToggle() {
     var element = document.body;
@@ -214,7 +243,7 @@
     }
   </script>
 
-  <style> /* the button style*/ 
+  <style> /* the button style */ 
    .btn {
   border: none; border-width:1px; /* change 'none' to 'solid' to add border*/
   padding: 14px 28px; /* Add some padding */
@@ -226,6 +255,96 @@
 .toLight {background-color: rgb(33,33,33); color: rgb(255,255,255);}
 .toLight:hover {background-color: rgb(56,56,56);}
    </style> 
+
+   <script>function switchHeader() {
+  const bar = document.getElementsByClassName('headerL');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("headerD");}
+}</script>
+
+<div class="headerL">
+  <h2>LikeJeppy</h2>
+</div>
+
+   <style> /* the navigation bar style */
+.navbarL {
+  overflow: hidden;
+  background-color: rgb(255,255,255);
+}
+
+.navbarL a {
+  float: left;
+  display: block;
+  color: rgb(3,3,3);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbarL a:hover {
+  background-color: rgb(242,242,242);
+  color: rgb(3,3,3);
+}
+
+.navbarL a.active {
+  background-color: rgb(229,229,229);
+  color: rgb(3,3,3);
+}
+
+.navbarL a.active:hover {
+  background-color: rgb(217,217,217);
+  color: rgb(3,3,3);
+}
+
+.navbarD {
+  overflow: hidden;
+  background-color: rgb(32,32,32);
+}
+
+.navbarD a {
+  float: left;
+  display: block;
+  color: rgb(255,255,255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbarD a:hover {
+  background-color: rgb(56,56,56);
+  color: white;
+}
+
+.navbarD a.active {
+  background-color: rgb(56,56,56);
+  color: white;
+}
+
+.navbarD a.active:hover {
+  background-color: rgb(76,76,76);
+  color: white;
+}
+</style>
+
+<script>function addSmall(){ /* function to make navbar smaller on scroll*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "85%";}
+}
+</script>
+
+<script>function removeSmall(){/*function to make navbar big again on top*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "100%";}
+}
+</script>
+
+<script>function switchNav() {
+  const bar = document.getElementsByClassName('navbarL');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("navbarD");}
+}</script>
 
    <style> /* add 'unselectable' to class to make text unselectable */
     .unselectable {
@@ -266,6 +385,28 @@ See the button with the id 'buttonSwitchModesId' for an example.
 
   <!-- [START] 'main web design' -->
 
+<div id="navbarID" class="navbarL nBar"> 
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="javascript:void(0)">Tab2</a>
+  <a href="javascript:void(0)">idk</a>
+</div>
+<script> /* script to keep navbar at top (has to be below navbar design) */
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarID");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    addSmall();
+    navbar.classList.add("sticky")
+  } else {
+    removeSmall();
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
  <div align="center"> <!--can't add any spaces in code or it will break on mobile-->
   <br class="unselectable">
   <a class="mainTextDark">Testing this now, eh?</a>
@@ -288,6 +429,21 @@ See the button with the id 'buttonSwitchModesId' for an example.
   onclick="alert('&quot;insert function&quot;')" 
   >Normal Button</a>
  </div>
+
+ <div class="content secondaryTextDark">
+  <h3 class="mainTextDark">Just some filler text</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis dignissim felis a tristique. Etiam elementum eget tortor hendrerit posuere. Morbi erat felis, iaculis eu egestas porta, pharetra ac justo. Sed vitae nunc feugiat, vulputate elit quis, dictum turpis. Donec sit amet eros justo. Sed ut turpis bibendum, laoreet massa eu, accumsan sapien. Suspendisse luctus imperdiet luctus. Morbi congue arcu leo. Aliquam quis tristique neque.</p>
+  <p>Donec ut nunc scelerisque, aliquet tortor vitae, dignissim sem. Aenean eget pretium nunc. Sed laoreet, est eu suscipit vehicula, dui ex ullamcorper velit, a malesuada ligula dolor sed tellus. Nullam et erat nec nisl semper bibendum. Mauris consectetur, erat at dictum egestas, nisl sapien auctor libero, id vehicula felis nibh in justo. Phasellus non auctor odio, ut blandit elit. Duis vitae malesuada erat. Sed posuere ante in nibh efficitur finibus. Proin vel dui a ex pulvinar eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam luctus tellus a tellus tempus pharetra. Phasellus mollis, nisi ac semper ultricies, lectus libero commodo mauris, quis viverra quam ex at magna.</p>
+  <p>Curabitur in iaculis risus, in rutrum massa. Nunc volutpat, leo vel sollicitudin vehicula, tortor massa tincidunt odio, vitae varius turpis metus et sem. Suspendisse fermentum ipsum nec vestibulum tristique. Quisque vitae sagittis erat. Curabitur volutpat fringilla ex, et elementum dui. Quisque eleifend neque vitae elit imperdiet porttitor. Aenean vel dolor at risus eleifend mattis in sed magna.</p>
+  <p>Nulla nec nibh condimentum, faucibus ex eu, interdum risus. Aenean erat erat, aliquam varius nibh eget, accumsan dignissim tellus. Vestibulum dignissim in orci a pellentesque. Quisque non lectus ante. Quisque neque urna, pretium vel elementum a, posuere eget libero. Ut ultricies in justo eu tincidunt. Donec a viverra risus. Duis hendrerit viverra leo. Nullam fermentum viverra quam, id aliquam dolor elementum ac. Duis tempus elit a egestas cursus. Fusce ultricies turpis nibh, gravida molestie erat sollicitudin et. Aliquam pulvinar congue dolor. Aenean hendrerit vestibulum metus eu placerat.</p>
+  <p>Vestibulum et turpis volutpat dui mollis interdum. Proin vehicula lorem tortor, sed pellentesque nisl vulputate non. Duis vulputate, orci nec fringilla malesuada, ipsum ante tempor orci, quis ullamcorper mauris nunc eu orci. Morbi tristique in tortor vel consequat. Nulla vehicula efficitur nulla fermentum maximus. Aliquam erat volutpat. Phasellus eget elit vitae orci vestibulum malesuada sagittis sed nibh. Donec fringilla purus id mattis pretium. Nulla vestibulum porta dui.</p>
+  <p>Donec nec congue libero. Vivamus urna eros, dapibus vel urna quis, consequat rutrum urna. Vivamus ut placerat purus. Duis gravida turpis feugiat tellus tristique suscipit. Sed placerat sagittis semper. Pellentesque ac magna eleifend, elementum erat nec, egestas orci. Phasellus ligula tellus, dapibus sed tempus ut, dictum et neque. Quisque vel tellus vitae ipsum suscipit posuere ac eu mi. Nunc eu eros turpis. Vivamus ac dolor sit amet sapien faucibus fringilla sed nec dolor. Curabitur maximus condimentum quam, quis volutpat mi elementum ac. Maecenas porta velit ut auctor luctus. Donec fermentum diam at justo aliquet, non tincidunt ipsum suscipit.</p>
+  <p>Donec vitae viverra erat, id varius urna. Maecenas ullamcorper nisl ac magna cursus aliquam eget vel arcu. Nullam iaculis feugiat fermentum. Nulla ut lacus eget turpis faucibus finibus fermentum nec nisi. Vestibulum faucibus molestie lobortis. Morbi eu leo vestibulum, condimentum risus non, interdum metus. Mauris tristique finibus nulla nec rhoncus. In vitae ante convallis, porta ipsum quis, eleifend felis. Nulla odio lacus, blandit congue ante in, tempus tristique augue. Pellentesque lacinia leo libero. Praesent tincidunt diam in egestas luctus. Vivamus porttitor tincidunt nibh, ut tincidunt justo pulvinar eu. Sed dignissim lectus vel ullamcorper sollicitudin. Proin accumsan non diam sit amet rutrum. Nulla sagittis sapien ac justo tempus, nec varius dui congue.</p>
+  <p>Maecenas venenatis aliquam porttitor. Donec vitae tristique tellus. Donec pulvinar eget turpis quis ultrices. Donec quis mi sed purus laoreet efficitur quis ut urna. Donec viverra vitae nisl a tempus. Nullam vulputate ultrices velit, eu faucibus dolor aliquet vitae. Donec tempus posuere sapien ac ornare. Curabitur condimentum orci at ligula euismod, at mollis enim lacinia. Integer eget lorem eget augue ullamcorper porta.</p>
+  <p>Donec gravida malesuada leo vel fringilla. Suspendisse justo libero, imperdiet at molestie non, viverra sed nisl. Nulla sit amet elit odio. Cras feugiat leo at ante dignissim, id imperdiet massa lacinia. Sed facilisis est nec vulputate volutpat. Nulla justo orci, eleifend a suscipit dictum, commodo non nulla. Mauris id elit ac sem pellentesque porttitor. Quisque est nunc, aliquet vitae molestie a, rutrum nec est. Proin id ex dolor. Duis interdum tempus odio, eget ultricies sem tincidunt eget.</p>
+  <p>Aenean et aliquet orci. Maecenas ut rutrum velit. Duis eu elementum diam, et hendrerit tellus. Duis luctus elit ac nibh consequat, et bibendum libero porttitor. Donec placerat porttitor mauris sit amet aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer non dictum orci. Aliquam facilisis eu mi vitae commodo. Quisque a porttitor orci, et semper odio. Donec felis arcu, molestie non justo vel, fermentum condimentum nulla. Donec velit enim, tempor sit amet tellus sit amet, commodo ullamcorper diam. In eros arcu, elementum ut nibh eu, fringilla mollis mi. Duis nunc augue, porttitor et iaculis nec, volutpat sit amet diam. Nam nibh massa, consectetur quis laoreet vitae, sodales vitae magna.</p>
+  <p>Pellentesque quam diam, tincidunt id ligula ac, rutrum convallis elit. Sed eget lectus vel orci viverra finibus. Nam suscipit vel nibh et posuere. Nulla tempus quam ut ipsum iaculis, ut cursus ex luctus. Praesent ornare luctus tellus, at egestas neque maximus ac. Nullam leo neque, hendrerit eu convallis non, molestie at lacus. Nullam accumsan pulvinar placerat. Vestibulum sed facilisis risus, eget dignissim eros. Donec cursus commodo massa.</p>
+</div>
 
   <!-- [END] 'main web design' -->
 

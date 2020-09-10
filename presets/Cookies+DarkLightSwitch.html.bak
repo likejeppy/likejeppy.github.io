@@ -11,6 +11,10 @@
   </head>
 
 <body onload="checkCookies(), bName(), switchMainText(), switchSecondaryText(), loadCookies(), checkMode()"> 
+
+
+  <!-- [START] 'cookies preset' -->
+
   <script>function checkCookies() {
     var tmp= localStorage.getItem('cookiesKey');
     /* add: '
@@ -20,114 +24,7 @@
     if(tmp === null) {
     localStorage.setItem('cookiesKey', "False");}}
    </script>
-
-  <div align="center">
-  <style>
-    body {
-  padding: 25px;
-  background-color: rgb(249,249,249);
-  color: rgb(3,3,3);
-  font-size: 25px;
-}
-
-.dark-mode {
-  background-color: rgb(24,24,24);
-  color: rgb(255,255,255);
-}
-  </style>
-
-  <script>function darkLightToggle() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");} 
-    </script>
-
-  <h2 class="mainTextDark">Testing this now, eh?</h2>
-  <h2 class="mainTextDark">neef</h2>
-  <p class="secondaryTextDark">Wank this is stank</p>
-
-  <style>
-    .mainTextDark
-    {
-      color: rgb(255,255,255);
-    }
-    .mainTextLight
-    {
-      color: rgb(3,3,3);
-    }
-  </style>
-
-    <script>function switchMainText()
-    {const mainTClass = document.getElementsByClassName('mainTextDark');
-      for (i = 0; i < mainTClass.length; i++) {
-      mainTClass[i].classList.toggle("mainTextLight");}
-    }
-  </script>
-
-  <style>
-    .secondaryTextDark
-    {
-      color: rgb(144,144,144);
-    }
-    .secondaryTextLight
-    {
-      color: rgb(96,96,96);
-    }
-  </style>
-    <script>function switchSecondaryText()
-    {const secTClass = document.getElementsByClassName('secondaryTextDark');
-      for (i = 0; i < secTClass.length; i++) {
-      secTClass[i].classList.toggle("secondaryTextLight");}
-    }
-  </script>
-
-  <script>
-    var modeSwitched = false;
-  </script>
-  <script>function bName() {var buttonText = "Dark Mode"
-    if(modeSwitched == false)                // d = dark, l = light
-      {buttonText = "Dark Mode", modeSwitched = true;} //switched to d mode
-    else {buttonText = "Light Mode", modeSwitched = false;} //switched to l mode
-      document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
-  </script>
-
-  <script>function switchTest()
-    {const buttonElement = document.getElementsByClassName('btn');
-      for (i = 0; i < buttonElement.length; i++) {
-      buttonElement[i].classList.toggle("toLight");}
-    }
-  </script>
-
-  <a style="text-decoration:none;" id="buttonSwitchModesId" 
-  class="btn toDark unselectable"></a>
-  <br class="unselectable">
-  <br class="unselectable"> 
-  <a style="text-decoration:none;" class="btn toDark unselectable" 
-  onclick="alert('&quot;insert function&quot;')" 
-  >Normal Button</a>
-
-  <style> /* the button style*/ 
-   .btn {
-  border: none; border-width:1px; /* change 'none' to 'solid' to add border*/
-  padding: 14px 28px; /* Add some padding */
-  cursor: pointer; /* Add a pointer cursor on mouse-over */
-  background-color: rgb(255,255,255); color: rgb(3,3,3);} /* Gray */
-  .btn:hover {background: rgb(242,242,242);
-}
-.toLight {border: none; border-width:1px;}/*change 'none' to 'solid' to add border*/
-.toLight {background-color: rgb(33,33,33); color: rgb(255,255,255);}
-.toLight:hover {background-color: rgb(56,56,56);}
-   </style> 
-
-   <style> /* add 'unselectable' to class to make text unselectable */
-    .unselectable {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;}
-   </style>
-
+   
   <script>
       var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
       var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
@@ -217,25 +114,182 @@
 }
   </script>
 
+  <!-- [END] 'cookies preset' -->
+
+
+  <!-- [START] 'dark/light mode preset' -->
+
   <script>function checkMode() {
-  	  	var mode= localStorage.getItem('darkMode');
-  	  	if(mode === 'True') {
-  		document.getElementById('buttonSwitchModesId').click();}}
+        var mode= localStorage.getItem('darkMode');
+        if(mode === 'True') {
+      document.getElementById('buttonSwitchModesId').click();}}
   </script>
 
   <script>function changeDarkMode() {
-  	if(modeSwitched == false) /* dark mode */ {
-  		localStorage.setItem('darkMode', "True");
-  	}else /* light mode */{
-  		localStorage.setItem('darkMode', "False");
-  	}}
+    if(modeSwitched == false) /* dark mode */ {
+      localStorage.setItem('darkMode', "True");
+    }else /* light mode */{
+      localStorage.setItem('darkMode', "False");
+    }}
   </script>
 
   <script>
-	window.onbeforeunload = function() {
-  	changeDarkMode();
+  window.onbeforeunload = function() {
+    changeDarkMode();
 }
   </script>
-</div>
+
+  <style>
+    body {
+  padding: 25px;
+  background-color: rgb(249,249,249);
+  font-size: 25px;
+}
+
+.dark-mode {
+  background-color: rgb(24,24,24);
+}
+  </style>
+
+  <script>function darkLightToggle() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");} 
+    </script>
+
+  <style>
+    .mainTextDark
+    {
+      color: rgb(255,255,255);
+      font-size: 1.5em;  /* similar to <h2> */
+	  font-weight: bolder; /* similar to <h2> */
+    }
+    .mainTextLight
+    {
+      color: rgb(3,3,3);
+      font-size: 1.5em; /* similar to <h2> */
+	  font-weight: bolder; /* similar to <h2> */
+    }
+  </style>
+
+    <script>function switchMainText()
+    {const mainTClass = document.getElementsByClassName('mainTextDark');
+      for (i = 0; i < mainTClass.length; i++) {
+      mainTClass[i].classList.toggle("mainTextLight");}
+    }
+  </script>
+
+  <style>
+    .secondaryTextDark
+    {
+      color: rgb(144,144,144);
+      font-size: 1.0em; /* similar to <p> */
+    }
+    .secondaryTextLight
+    {
+      color: rgb(96,96,96);
+      font-size: 1.0em; /* similar to <p> */
+    }
+  </style>
+    <script>function switchSecondaryText()
+    {const secTClass = document.getElementsByClassName('secondaryTextDark');
+      for (i = 0; i < secTClass.length; i++) {
+      secTClass[i].classList.toggle("secondaryTextLight");}
+    }
+  </script>
+
+  <script>
+    var modeSwitched = false;
+  </script>
+  <script>function bName() {var buttonText = "Dark Mode"
+    if(modeSwitched == false)                // d = dark, l = light
+      {buttonText = "Dark Mode", modeSwitched = true;} //switched to d mode
+    else {buttonText = "Light Mode", modeSwitched = false;} //switched to l mode
+      document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
+  </script>
+
+  <script>function switchTest()
+    {const buttonElement = document.getElementsByClassName('btn');
+      for (i = 0; i < buttonElement.length; i++) { 
+      buttonElement[i].classList.toggle("toLight");}
+    }
+  </script>
+
+  <style> /* the button style*/ 
+   .btn {
+  border: none; border-width:1px; /* change 'none' to 'solid' to add border*/
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+  background-color: rgb(255,255,255); color: rgb(3,3,3);} /* Gray */
+  .btn:hover {background: rgb(242,242,242);
+}
+.toLight {border: none; border-width:1px;}/*change 'none' to 'solid' to add border*/
+.toLight {background-color: rgb(33,33,33); color: rgb(255,255,255);}
+.toLight:hover {background-color: rgb(56,56,56);}
+   </style> 
+
+   <style> /* add 'unselectable' to class to make text unselectable */
+    .unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;}
+   </style>
+
+  <!-- [END] 'dark/light mode preset' -->
+
+
+  <!-- [START] 'info' -->
+
+<!--
+[CLASS]
+-'mainTextDark' = add this to all the headlines and titles on the site 
+(standard text colour = black&white)
+
+-'secondaryTextDark' = add this to all the text that's not a title or headline.
+This would be most of the text (standard text colour = dark/light gray)
+
+-'btn' = add this to all buttons. This adds dark/light mode
+
+-'unselectable' = add this to make the text unselectable. 
+This can be added to anything with text and can be especially useful on buttons
+
+[ID]
+-'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. 
+IMPORTANT: this can only be applied to one (1) button! Also: this button cannot have 'onclick' added to it! 
+See the button with the id 'buttonSwitchModesId' for an example.
+ -->
+
+  <!-- [END] 'info' -->
+
+
+  <!-- [START] 'main web design' -->
+
+ <div align="center"> <!--can't add any spaces in code or it will break on mobile-->
+  <br class="unselectable">
+  <a class="mainTextDark">Testing this now, eh?</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="mainTextDark">neef</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="secondaryTextDark">Wank this is stank</a>
+  <br class="unselectable">
+  <br class="unselectable">
+ </div>
+
+ <div align="center">
+  <a style="text-decoration:none;" id="buttonSwitchModesId" 
+  class="btn unselectable"></a>
+  <br class="unselectable">
+  <br class="unselectable"> 
+  <a style="text-decoration:none;" class="btn unselectable" 
+  onclick="alert('&quot;insert function&quot;')" 
+  >Normal Button</a>
+ </div>
+
+  <!-- [END] 'main web design' -->
+
 </body> 
 </html> 
