@@ -1,0 +1,132 @@
+/* All the page colours can be edited here.
+
+   -The cookie pupop colours can be edited in the original .html file 
+   on the function: 'changeCookies'.
+
+   -The size of the navbar when scrolling down 
+   can be changed on the function: 'addSmall'.
+*/
+
+body {
+  margin: 0;
+  font-size: 25px;
+  background-color: rgb(249,249,249); /* page color (light mode) */
+  font-family: Arial, Helvetica, sans-serif;
+}
+.dark-mode{ /* page color (dark mode) */
+  background-color: rgb(24,24,24);
+}
+
+.headerL { /* header color (light mode) */
+  color: rgb(3,3,3);
+  background-color: rgb(249,249,249);
+  padding: 30px;
+  text-align: center;
+}
+.headerD { /* header color (dark mode) */
+  color: rgb(255,255,255);
+  background-color: rgb(24,24,24);
+}
+
+.navbarL { /* navbar background color (light mode) */
+  overflow: hidden;
+  background-color: rgb(255,255,255);
+}
+.navbarL a { /* navbar text color (light mode) */
+  float: left;
+  display: block;
+  color: rgb(3,3,3);
+  text-align: center;
+  padding: 14px 16px; /* navbar size (light mode) */
+  text-decoration: none;
+}
+.navbarL a:hover { /* navbar tab color on hover (light mode) */
+  background-color: rgb(242,242,242);
+  color: rgb(3,3,3);
+}
+.navbarL a.active { /* navbar tab color when active (light mode) */
+  background-color: rgb(229,229,229);
+  color: rgb(3,3,3);
+}
+.navbarL a.active:hover { /* navbar tab color on hover & when active (light mode) */
+  background-color: rgb(217,217,217);
+  color: rgb(3,3,3);
+}
+
+.navbarD { /* navbar background color (dark mode) */
+  overflow: hidden;
+  background-color: rgb(32,32,32);
+}
+.navbarD a { /* navbar text color (dark mode) */
+  float: left;
+  display: block;
+  color: rgb(255,255,255);
+  text-align: center;
+  padding: 14px 16px; /* navbar size (dark mode) */
+  text-decoration: none;
+}
+.navbarD a:hover { /* navbar tab color on hover (dark mode) */
+  background-color: rgb(56,56,56);
+  color: white;
+}
+.navbarD a.active { /* navbar tab color when active (dark mode) */
+  background-color: rgb(56,56,56);
+  color: white;
+}
+.navbarD a.active:hover { /* navbar tab color on hover & when active (dark mode) */
+  background-color: rgb(76,76,76);
+  color: white;
+}
+
+.btn { /* button color (light mode) */
+  border: none; border-width:1px; /* change 'none' to 'solid' to add border */
+  padding: 14px 28px;
+  cursor: pointer; 
+  background-color: rgb(255,255,255); color: rgb(3,3,3);}
+  .btn:hover {background: rgb(242,242,242); /* button color on hover (light mode) */
+}
+.toDark {border: none; border-width:1px;} /* change 'none' to 'solid' to add border*/
+.toDark {background-color: rgb(33,33,33); color: rgb(255,255,255);} /* button color (dark mode) */
+.toDark:hover {background-color: rgb(56,56,56);} /* button color on hover (dark mode) */
+
+.mainTextLight { /* text style of text with 'mainTextLight' class (light mode) */
+  color: rgb(3,3,3);
+  font-size: 1.5em; /* similar to <h2> */
+  font-weight: bolder; /* similar to <h2> */
+}
+.mainTextDark { /* text style of text with 'mainTextDark' class (dark mode) */
+  color: rgb(255,255,255);
+  font-size: 1.5em;  /* similar to <h2> */
+  font-weight: bolder; /* similar to <h2> */
+}
+
+.secondaryTextLight { /* text style of text with 'secondaryTextDark' class (light mode) */
+  color: rgb(96,96,96);
+  font-size: 1.0em; /* similar to <p> */
+}
+.secondaryTextDark { /* text style of text with 'secondaryTextDark' class (dark mode) */
+  color: rgb(144,144,144);
+  font-size: 1.0em; /* similar to <p> */
+}
+
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.98; /* the opacity of the navbar when scrolling down */
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+
+.unselectable { /* class to make text unselectable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
