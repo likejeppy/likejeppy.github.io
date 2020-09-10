@@ -90,23 +90,23 @@ body {
 .toDark {background-color: rgb(33,33,33); color: rgb(255,255,255);} /* button color (dark mode) */
 .toDark:hover {background-color: rgb(56,56,56);} /* button color on hover (dark mode) */
 
-.mainTextLight { /* text style of text with 'mainTextLight' class (light mode) */
-  color: rgb(3,3,3);
-  font-size: 1.5em; /* similar to <h2> */
-  font-weight: bolder; /* similar to <h2> */
-}
 .mainTextDark { /* text style of text with 'mainTextDark' class (dark mode) */
   color: rgb(255,255,255);
   font-size: 1.5em;  /* similar to <h2> */
   font-weight: bolder; /* similar to <h2> */
 }
-
-.secondaryTextLight { /* text style of text with 'secondaryTextDark' class (light mode) */
-  color: rgb(96,96,96);
-  font-size: 1.0em; /* similar to <p> */
+.mainTextLight { /* text style of text with 'mainTextLight' class (light mode) */
+  color: rgb(3,3,3);
+  font-size: 1.5em; /* similar to <h2> */
+  font-weight: bolder; /* similar to <h2> */
 }
+
 .secondaryTextDark { /* text style of text with 'secondaryTextDark' class (dark mode) */
   color: rgb(144,144,144);
+  font-size: 1.0em; /* similar to <p> */
+}
+.secondaryTextLight { /* text style of text with 'secondaryTextDark' class (light mode) */
+  color: rgb(96,96,96);
   font-size: 1.0em; /* similar to <p> */
 }
 
