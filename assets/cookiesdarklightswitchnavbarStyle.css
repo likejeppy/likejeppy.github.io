@@ -114,7 +114,7 @@ body {
   padding: 16px;
 }
 .sticky {
-  position: fixed;
+  position: sticky; /* can aslo be 'fixed', but will snap */
   top: 0;
   width: 100%;
   opacity: 0.98; /* the opacity of the navbar when scrolling down */
