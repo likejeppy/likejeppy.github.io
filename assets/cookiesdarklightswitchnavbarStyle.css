@@ -113,11 +113,19 @@ body {
 .content {
   padding: 16px;
 }
-.sticky {
-  position: sticky; /* can aslo be 'fixed', but will snap */
+.sticky { /* desktop */
+  position: sticky; /* sticky on desktop */
   top: 0;
   width: 100%;
   opacity: 0.98; /* the opacity of the navbar when scrolling down */
+}
+@media only screen and (max-width: 1023px){ /* mobile devices/tablets */
+.sticky {
+  position: fixed; /* fixed on mobile devices */
+  top: 0;
+  width: 100%;
+  opacity: 0.98; /* the opacity of the navbar when scrolling down */
+}
 }
 .sticky + .content {
   padding-top: 60px;
