@@ -4,13 +4,6 @@ body {
   margin: 0;
 }
 
-.headerL { /* header color (light mode) */
-  color: white;
-  background-color: #EB4034;
-  padding: 30px;
-  text-align: center;
-}
-
 header {
   height: auto; 
   background-color: #EB4034;
