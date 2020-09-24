@@ -10,7 +10,7 @@ header {
   position: static;
   top: 0;
   width: 100%;
-  background-size: auto;
+  min-width: 960px;
 }
 .headerText {
   color: white; 
@@ -25,7 +25,7 @@ footer {
   position: static;
   bottom: 0;
   width: 100%;
-  background-size: auto;
+  min-width: 960px;
 }
 .footerText {
   color: white; 
