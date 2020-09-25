@@ -1,0 +1,385 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Cookies+ModeToggle</title>
+    <meta name="description" content="Cookies popup test with a light/dark mode toggle">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://likejeppy.github.io/assets/WebPagePresetStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+
+<body onload="checkCookies(), bName(), loadCookies(), checkMode()"> 
+
+  <!-- [START] 'cookies preset' -->
+
+  <script>function checkCookies() {
+    var tmp= localStorage.getItem('cookiesKey');
+    /* add: '
+    localStorage.setItem('cookiesKey', "False");
+    alert(tmp);
+    'to change value back to 'False' to show popup again */
+    if(tmp === null) {
+    localStorage.setItem('cookiesKey', "False");}}
+   </script>
+   
+  <script>
+      var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
+      var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
+      var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
+      var btnColourCode = '#eb4034'; /* #f1d600 = yellow */
+      var btnTextColourCode = '#ffffff'; /* #000000 = black */
+    </script>
+    <script>function changeCookies() {
+      if(modeSwitched == false) /* dark mode */
+        {bgColourCode = '#222222', bgTextColourCode = '#ffffff', 
+        bgLinkColourCode = '#d3d3d3', btnColourCode = '#eb4034', 
+        btnTextColourCode = '#ffffff';}
+      else /* light mode */
+        {bgColourCode = '#eaeaeb', bgTextColourCode = '#000000', 
+        bgLinkColourCode = '#2f2f2f', btnColourCode = '#eb4034', 
+        btnTextColourCode = '#ffffff';}}
+     </script>
+     <script>function openCookies() {cc.open()}</script>
+     <script>function closeCookies() {cc.close()}</script>
+
+  <script src="https://likejeppy.github.io/assets/script.js"></script>
+  <script src="https://likejeppy.github.io/assets/cookieconsent.min.js"></script>
+  <script>function loadCookies() {
+    var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False'){
+    const cc = new CookieConsent({
+      type: 'info',
+      theme: 'classic',
+      showLink: true, /* set to 'false' to remove 'Learn more' with link*/
+      palette: {
+        popup: { background: bgColourCode, text: bgTextColourCode, 
+          link: bgLinkColourCode},
+        button: { background: btnColourCode,text: btnTextColourCode }
+        /* light mode - 
+        (main) background: '#eaeaeb', text: '#000000', link: '#2f2f2f'
+        (button) background: '#f1d600', text: '#000000'
+            dark mode - 
+        (main) background: '#222222', text: '#ffffff', link: '#d3d3d3'
+        (button) background: '#f1d600', text: '#000000'
+        */
+      },
+      content: {
+        header: 'Cookies used on the website!',
+        message: 'This website uses cookies to improve your experience.',
+        dismiss: 'Got it!', /* not used with type: 'opt-in'/'opt-out' */
+        allow: 'Allow cookies', /* not used with type: 'info' */
+        deny: 'Decline', /* not used with type: 'info' */
+        link: 'Learn more',
+        href: 'https://www.cookiesandyou.com',
+        close: '&#x274c;',
+        policy: 'Cookie Policy',
+        target: '_blank',
+      },
+      cookie: {
+      domain: '', /* change to 'local' to keep showing popup, else keep empty*/
+      expiryDays: -1, /* -1 = never expires */
+      },
+      location: false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
+
+        If a service succeeds, then the two letter country code is passed to the ‘Law’ module, with changes your popup options depending on the cookie laws in the country code.*/
+      law: {
+      regionalLaw: false, /* false = only show popup when required by law (checked via location), true = always show popup */
+      },     
+    })
+
+    cc.on( "statusChanged", function () {
+      var tmp= localStorage.getItem('cookiesKey');
+    if(tmp === 'False') {
+    localStorage.setItem('cookiesKey', "True");}
+    })
+
+    document.getElementById('buttonSwitchModesId').onclick = function () {
+    var tmp= localStorage.getItem('cookiesKey');
+      if(tmp === 'False')
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader();}
+      else
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+      }
+    };
+  }
+  else
+    {
+    document.getElementById('buttonSwitchModesId').onclick = function () {
+      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+    };
+  }
+}
+  </script>
+
+  <!-- [END] 'cookies preset' -->
+
+
+  <!-- [START] 'dark/light mode preset' -->
+
+  <script>function checkMode() {
+        var mode= localStorage.getItem('darkMode');
+        if(mode === 'True') {
+      document.getElementById('buttonSwitchModesId').click();}}
+  </script>
+
+  <script>function changeDarkMode() {
+    if(modeSwitched == false) /* dark mode */ {
+      localStorage.setItem('darkMode', "True");
+    }else /* light mode */{
+      localStorage.setItem('darkMode', "False");
+    }}
+  </script>
+
+  <script>
+  window.onbeforeunload = function() {
+    changeDarkMode();
+}
+  </script>
+
+  <script>function darkLightToggle() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");} 
+    </script>
+
+    <script>function toggleArticle()
+    {const artClass = document.getElementsByClassName('article');
+      for (i = 0; i < artClass.length; i++) {
+      artClass[i].classList.toggle("articleDark");}
+    }
+   </script>
+
+    <script>function switchMainText()
+    {const mainTClass = document.getElementsByClassName('mainTextLight');
+      for (i = 0; i < mainTClass.length; i++) {
+      mainTClass[i].classList.toggle("mainTextDark");}
+    }
+  </script>
+
+    <script>function switchSecondaryText()
+    {const secTClass = document.getElementsByClassName('secondaryTextLight');
+      for (i = 0; i < secTClass.length; i++) {
+      secTClass[i].classList.toggle("secondaryTextDark");}
+    }
+  </script>
+
+  <script>
+    var modeSwitched = false;
+  </script>
+  <script>function bName() {var buttonText = "Dark Mode"
+    if(modeSwitched == false)                // d = dark, l = light
+      {buttonText = "Dark Mode", modeSwitched = true;} //switched to d mode
+    else {buttonText = "Light Mode", modeSwitched = false;} //switched to l mode
+      document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
+  </script>
+
+  <script>function switchTest()
+    {const buttonElement = document.getElementsByClassName('btn');
+      for (i = 0; i < buttonElement.length; i++) { 
+      buttonElement[i].classList.toggle("toDark");}
+    }
+  </script>
+
+   <script>function switchHeader() {
+  const bar = document.getElementsByClassName('headerL');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("headerD");}
+}</script>
+
+<script>function addSmall(){ /* function to make navbar smaller on scroll*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "85%";}
+}
+</script>
+
+<script>function removeSmall(){/*function to make navbar big again on top*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "100%";}
+}
+</script>
+
+<script>function switchNav() {
+  const bar = document.getElementsByClassName('BarEh');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("BarEhDark");}
+}</script>
+
+<script>function switchDDown() {
+  const ddown = document.getElementsByClassName('dropdown-content');
+      for (i = 0; i < ddown.length; i++) {
+      ddown[i].classList.toggle("dropdown-contentDark");}
+}</script>
+
+  <!-- [END] 'dark/light mode preset' -->
+
+
+  <!-- [START] 'info' -->
+
+<!--
+[CLASS]
+(All of these classes can be edited in the 'cookiesdarklightswitchnavbarStyle.css' file)
+
+-'dark-mode' = use to toggle the webpage background to dark mode
+
+-'headerL' = the header class
+-'headerD' = use to toggle the header to dark mode
+
+-'navbarL' = the navbar class
+-'navbarD' = use to toggle the navbar to dark mode
+
+-'btn' = the button class. Add this to all buttons
+-'toDark' = use to toggle the buttons to dark mode
+
+-'mainTextLight' = add this to all the headlines and titles on the site 
+-'mainTextDark' = use to toggle the main text colours to dark mode
+
+-'secondaryTextLight' = add this to all the other text that's not a title or headline
+-'secondaryTextDark' = use to toggle the secondary text colours to dark mode
+
+-'content' = adds some padding. (not necessary!)
+
+-'sticky' = class that's automatically added to the navbar when scrolling down
+
+-'unselectable' = add this to make the text unselectable. 
+This can be added to anything with text and can be especially useful on buttons
+
+[ID]
+-'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. 
+IMPORTANT: this can only be applied to one (1) button! Also: this button cannot have 'onclick' added to it! 
+See the button with the id 'buttonSwitchModesId' for an example.
+ -->
+
+  <!-- [END] 'info' -->
+
+
+  <!-- [START] 'main web design' -->
+
+<header>
+  <h1 class="headerText unselectable">LikeJeppy</h1>
+</header>
+
+<div id="navbarID" class="BarEh nBar"> 
+  <a class="active testCl" href="javascript:void(0)">Home</a
+  ><a href="javascript:void(0)">News</a
+  	><div class="dropdown">
+  	<a class="dropbtn" href="javascript:void(0)">Products</a>
+		<div class="dropdown-content">
+			<a href="#">Link 1</a>
+			<a href="#">Link 2</a>
+			<a href="#">Link 3</a>
+		</div>
+  </div
+  ><a href="javascript:void(0)">About</a>
+</div>
+
+<script> /* script to keep navbar at top (has to be below navbar design) */
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarID");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    addSmall();
+    navbar.classList.add("sticky")
+  } else {
+    removeSmall();
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+ <div align="center">
+  <br class="unselectable">
+  <a class="mainTextLight">Testing this now, eh?</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="mainTextLight">neef</a>
+  <br class="unselectable">
+  <br class="unselectable">
+  <a class="secondaryTextLight">Wank this is stank</a>
+  <br class="unselectable">
+  <br class="unselectable">
+ </div>
+
+ <div align="center">
+  <a style="text-decoration:none;" id="buttonSwitchModesId" 
+  class="btn unselectable"></a>
+  <br class="unselectable">
+  <br class="unselectable"> 
+  <a style="text-decoration:none;" class="btn unselectable" 
+  onclick="alert('&quot;insert function&quot;')" 
+  >Normal Button</a>
+ </div>
+
+ <div class="empty">
+  <br class="unselectable">
+  <br class="unselectable">
+ </div>
+
+<section>
+<div class="article">
+  <div align="center" class="mainTextLight">
+    <h2 style="font-size: 25px;">Whatever mate ddadwa</h2>
+  <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 and earlier versions.</p>
+  </div>
+
+  <div  class="secondaryTextLight">
+    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis dignissim felis a tristique. Etiam elementum eget tortor hendrerit posuere. Morbi erat felis, iaculis eu egestas porta, pharetra ac justo. Sed vitae nunc feugiat, vulputate elit quis, dictum turpis. Donec sit amet eros justo. Sed ut turpis bibendum, laoreet massa eu, accumsan sapien. Suspendisse luctus imperdiet luctus. Morbi congue arcu leo. Aliquam quis tristique neque.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec ut nunc scelerisque, aliquet tortor vitae, dignissim sem. Aenean eget pretium nunc. Sed laoreet, est eu suscipit vehicula, dui ex ullamcorper velit, a malesuada ligula dolor sed tellus. Nullam et erat nec nisl semper bibendum. Mauris consectetur, erat at dictum egestas, nisl sapien auctor libero, id vehicula felis nibh in justo. Phasellus non auctor odio, ut blandit elit. Duis vitae malesuada erat. Sed posuere ante in nibh efficitur finibus. Proin vel dui a ex pulvinar eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam luctus tellus a tellus tempus pharetra. Phasellus mollis, nisi ac semper ultricies, lectus libero commodo mauris, quis viverra quam ex at magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Curabitur in iaculis risus, in rutrum massa. Nunc volutpat, leo vel sollicitudin vehicula, tortor massa tincidunt odio, vitae varius turpis metus et sem. Suspendisse fermentum ipsum nec vestibulum tristique. Quisque vitae sagittis erat. Curabitur volutpat fringilla ex, et elementum dui. Quisque eleifend neque vitae elit imperdiet porttitor. Aenean vel dolor at risus eleifend mattis in sed magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Nulla nec nibh condimentum, faucibus ex eu, interdum risus. Aenean erat erat, aliquam varius nibh eget, accumsan dignissim tellus. Vestibulum dignissim in orci a pellentesque. Quisque non lectus ante. Quisque neque urna, pretium vel elementum a, posuere eget libero. Ut ultricies in justo eu tincidunt. Donec a viverra risus. Duis hendrerit viverra leo. Nullam fermentum viverra quam, id aliquam dolor elementum ac. Duis tempus elit a egestas cursus. Fusce ultricies turpis nibh, gravida molestie erat sollicitudin et. Aliquam pulvinar congue dolor. Aenean hendrerit vestibulum metus eu placerat.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Vestibulum et turpis volutpat dui mollis interdum. Proin vehicula lorem tortor, sed pellentesque nisl vulputate non. Duis vulputate, orci nec fringilla malesuada, ipsum ante tempor orci, quis ullamcorper mauris nunc eu orci. Morbi tristique in tortor vel consequat. Nulla vehicula efficitur nulla fermentum maximus. Aliquam erat volutpat. Phasellus eget elit vitae orci vestibulum malesuada sagittis sed nibh. Donec fringilla purus id mattis pretium. Nulla vestibulum porta dui.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec nec congue libero. Vivamus urna eros, dapibus vel urna quis, consequat rutrum urna. Vivamus ut placerat purus. Duis gravida turpis feugiat tellus tristique suscipit. Sed placerat sagittis semper. Pellentesque ac magna eleifend, elementum erat nec, egestas orci. Phasellus ligula tellus, dapibus sed tempus ut, dictum et neque. Quisque vel tellus vitae ipsum suscipit posuere ac eu mi. Nunc eu eros turpis. Vivamus ac dolor sit amet sapien faucibus fringilla sed nec dolor. Curabitur maximus condimentum quam, quis volutpat mi elementum ac. Maecenas porta velit ut auctor luctus. Donec fermentum diam at justo aliquet, non tincidunt ipsum suscipit.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec vitae viverra erat, id varius urna. Maecenas ullamcorper nisl ac magna cursus aliquam eget vel arcu. Nullam iaculis feugiat fermentum. Nulla ut lacus eget turpis faucibus finibus fermentum nec nisi. Vestibulum faucibus molestie lobortis. Morbi eu leo vestibulum, condimentum risus non, interdum metus. Mauris tristique finibus nulla nec rhoncus. In vitae ante convallis, porta ipsum quis, eleifend felis. Nulla odio lacus, blandit congue ante in, tempus tristique augue. Pellentesque lacinia leo libero. Praesent tincidunt diam in egestas luctus. Vivamus porttitor tincidunt nibh, ut tincidunt justo pulvinar eu. Sed dignissim lectus vel ullamcorper sollicitudin. Proin accumsan non diam sit amet rutrum. Nulla sagittis sapien ac justo tempus, nec varius dui congue.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Maecenas venenatis aliquam porttitor. Donec vitae tristique tellus. Donec pulvinar eget turpis quis ultrices. Donec quis mi sed purus laoreet efficitur quis ut urna. Donec viverra vitae nisl a tempus. Nullam vulputate ultrices velit, eu faucibus dolor aliquet vitae. Donec tempus posuere sapien ac ornare. Curabitur condimentum orci at ligula euismod, at mollis enim lacinia. Integer eget lorem eget augue ullamcorper porta.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec gravida malesuada leo vel fringilla. Suspendisse justo libero, imperdiet at molestie non, viverra sed nisl. Nulla sit amet elit odio. Cras feugiat leo at ante dignissim, id imperdiet massa lacinia. Sed facilisis est nec vulputate volutpat. Nulla justo orci, eleifend a suscipit dictum, commodo non nulla. Mauris id elit ac sem pellentesque porttitor. Quisque est nunc, aliquet vitae molestie a, rutrum nec est. Proin id ex dolor. Duis interdum tempus odio, eget ultricies sem tincidunt eget.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Aenean et aliquet orci. Maecenas ut rutrum velit. Duis eu elementum diam, et hendrerit tellus. Duis luctus elit ac nibh consequat, et bibendum libero porttitor. Donec placerat porttitor mauris sit amet aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer non dictum orci. Aliquam facilisis eu mi vitae commodo. Quisque a porttitor orci, et semper odio. Donec felis arcu, molestie non justo vel, fermentum condimentum nulla. Donec velit enim, tempor sit amet tellus sit amet, commodo ullamcorper diam. In eros arcu, elementum ut nibh eu, fringilla mollis mi. Duis nunc augue, porttitor et iaculis nec, volutpat sit amet diam. Nam nibh massa, consectetur quis laoreet vitae, sodales vitae magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Pellentesque quam diam, tincidunt id ligula ac, rutrum convallis elit. Sed eget lectus vel orci viverra finibus. Nam suscipit vel nibh et posuere. Nulla tempus quam ut ipsum iaculis, ut cursus ex luctus. Praesent ornare luctus tellus, at egestas neque maximus ac. Nullam leo neque, hendrerit eu convallis non, molestie at lacus. Nullam accumsan pulvinar placerat. Vestibulum sed facilisis risus, eget dignissim eros. Donec cursus commodo massa.</a>
+  </div>
+</div>
+</section>
+
+  <!-- [END] 'main web design' -->
+
+  <!-- [START] 'footer' -->
+
+<div class="empty">
+  <br class="unselectable">
+  <br class="unselectable">
+</div>
+
+<footer>
+  <h1 class="footerText unselectable">Footer, of niet dan?</h1>
+</footer>
+
+  <!-- [END] 'footer' -->
+
+</body> 
+</html> 
