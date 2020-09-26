@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Cookies+ModeToggle</title>
+    <title>WebPage Preset</title>
     <meta name="description" content="Cookies popup test with a light/dark mode toggle">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -235,7 +235,7 @@
 
 <script>function changeActive(){
   $("a").on("click", function(event){
-    if (event.target.className.indexOf('navBtn') >-1 ) {
+    if (event.target.className.indexOf('navBtn') >-1 && !event.target.matches('.dropbtn')) {
       const curActive = document.getElementsByClassName('active');
       for (i = 0; i < curActive.length; i++) {
       curActive[i].classList.remove("active");}
@@ -274,7 +274,7 @@ window.onclick = function(e) {
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
       showDDown();
-    changeArrow();
+	  changeArrow();
    }
   }
 }
