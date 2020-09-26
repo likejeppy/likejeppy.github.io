@@ -102,16 +102,16 @@
     document.getElementById('buttonSwitchModesId').onclick = function () {
     var tmp= localStorage.getItem('cookiesKey');
       if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader();}
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();}
       else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();
       }
     };
   }
   else
     {
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();
     };
   }
 }
@@ -238,6 +238,17 @@
       for (i = 0; i < curClass.length; i++) {
       curClass[i].classList.add("active");}}
 })
+}
+</script>
+
+<script>function resetActive(){
+  const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const homeClass = document.getElementsByClassName('home');
+      for (i = 0; i < homeClass.length; i++) {
+      homeClass[i].classList.add("active");}
 }
 </script>
 
