@@ -18,73 +18,6 @@ body {
   background-color: rgb(24,24,24);
 }
 
-.headerL { /* header color (light mode) */
-  color: rgb(3,3,3);
-  background-color: rgb(249,249,249);
-  padding: 30px;
-  text-align: center;
-}
-.headerD { /* header color (dark mode) */
-  color: rgb(255,255,255);
-  background-color: rgb(24,24,24);
-}
-
-.navbarL { /* navbar background color (light mode) */
-  width: auto;
-  min-width: 1040px;
-  overflow: hidden;
-  z-index: 2;
-  background-color: rgb(255,255,255);
-}
-.navbarL a { /* navbar text color (light mode) */
-  float: left;
-  display: block;
-  color: rgb(3,3,3);
-  text-align: center;
-  padding: 14px 16px; /* navbar size (light mode) */
-  text-decoration: none;
-}
-.navbarL a:hover { /* navbar tab color on hover (light mode) */
-  background-color: rgb(242,242,242);
-  color: rgb(3,3,3);
-}
-.navbarL a.active { /* navbar tab color when active (light mode) */
-  background-color: rgb(229,229,229);
-  color: rgb(3,3,3);
-}
-.navbarL a.active:hover { /* navbar tab color on hover & when active (light mode) */
-  background-color: rgb(217,217,217);
-  color: rgb(3,3,3);
-}
-
-.navbarD { /* navbar background color (dark mode) */
-  width: auto;
-  min-width: 1040px;
-  overflow: hidden;
-  z-index: 2;
-  background-color: rgb(32,32,32);
-}
-.navbarD a { /* navbar text color (dark mode) */
-  float: left;
-  display: block;
-  color: rgb(255,255,255);
-  text-align: center;
-  padding: 14px 16px; /* navbar size (dark mode) */
-  text-decoration: none;
-}
-.navbarD a:hover { /* navbar tab color on hover (dark mode) */
-  background-color: rgb(56,56,56);
-  color: white;
-}
-.navbarD a.active { /* navbar tab color when active (dark mode) */
-  background-color: rgb(56,56,56);
-  color: white;
-}
-.navbarD a.active:hover { /* navbar tab color on hover & when active (dark mode) */
-  background-color: rgb(76,76,76);
-  color: white;
-}
-
 .btn { /* button color (light mode) */
   border: none; border-width:1px; /* change 'none' to 'solid' to add border */
   padding: 14px 28px;
@@ -138,7 +71,7 @@ body {
   user-select: none;
 }
 
-header {
+.headerL { /* header style (light mode) */
   height: auto; 
   background-color: #EB4034;
   position: static;
@@ -146,14 +79,29 @@ header {
   width: auto;
   min-width: 1040px;
 }
-.headerText {
+.headerTextL { /* header text style (light mode) */
   color: white; 
   padding: 24px; 
   margin: 0; 
   text-align: center;
 }
 
-footer {
+.headerD { /* header style (dark mode) */
+  height: auto; 
+  background-color: #EB4034;
+  position: static;
+  top: 0;
+  width: auto;
+  min-width: 1040px;
+}
+.headerTextD { /* header text style (dark mode) */
+  color: white; 
+  padding: 24px; 
+  margin: 0; 
+  text-align: center;
+}
+
+.footerL { /* footer style (light mode) */
   height: auto; 
   background-color: #EB4034;
   position: static;
@@ -161,7 +109,22 @@ footer {
   width: auto;
   min-width: 1040px;
 }
-.footerText {
+.footerTextL { /* footer text style (light mode) */
+  color: white; 
+  padding: 20px; 
+  margin: 0; 
+  text-align: center;
+}
+
+.footerD { /* footer style (dark mode) */
+  height: auto; 
+  background-color: #EB4034;
+  position: static;
+  bottom: 0;
+  width: auto;
+  min-width: 1040px;
+}
+.footerTextD { /* footer text style (dark mode) */
   color: white; 
   padding: 20px; 
   margin: 0; 
@@ -197,11 +160,11 @@ section {
   font-size: 10px;
 }
 
-.testCl{
+.navBarMargin{
   margin-left: 22.68%;
 }
 
-.BarEh{
+.navBarL{
   list-style-type:  none;
   margin: 0;
   padding: 0;
@@ -211,21 +174,21 @@ section {
   z-index: 2;
   background-color: rgb(255,255,255);
 }
-.BarEh a{
+.navBarL a{
   display: inline-block;
   color: rgb(3,3,3);
   padding: 14px 16px; /* navbar size (light mode) */
   text-decoration: none;
 }
-.BarEh a:hover{
+.navBarL a:hover{
   background-color: rgb(242,242,242);
   color: rgb(3,3,3);
 }
-.BarEh a.active {
+.navBarL a.active {
   background-color: rgb(229,229,229);
   color: rgb(3,3,3);
 }
-.BarEh a.active:hover {
+.navBarL a.active:hover {
   background-color: rgb(217,217,217);
   color: rgb(3,3,3);
 }
@@ -260,7 +223,7 @@ section {
   display: block;
 }
 
-.BarEhDark{
+.navBarD{
   list-style-type:  none;
   margin: 0;
   padding: 0;
@@ -270,21 +233,21 @@ section {
   z-index: 2;
   background-color: rgb(32,32,32);
 }
-.BarEhDark a {
+.navBarD a {
   display: inline-block;
   color: rgb(255,255,255);
   padding: 14px 16px; /* navbar size (light mode) */
   text-decoration: none;
 }
-.BarEhDark a:hover {
+.navBarD a:hover {
   background-color: rgb(56,56,56);
   color: white;
 }
-.BarEhDark a.active {
+.navBarD a.active {
   background-color: rgb(56,56,56);
   color: white;
 }
-.BarEhDark a.active:hover {
+.navBarD a.active:hover {
   background-color: rgb(76,76,76);
   color: white;
 }
@@ -332,7 +295,7 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
-.testCl {
+.navBarMargin {
   margin-left: auto;
 }
 }

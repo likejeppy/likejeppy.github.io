@@ -102,16 +102,16 @@
     document.getElementById('buttonSwitchModesId').onclick = function () {
     var tmp= localStorage.getItem('cookiesKey');
       if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader();}
+        {cc.destroy(), bName(), changeCookies(), switchBtn(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();}
       else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+      {bName(), changeCookies(), switchBtn(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();
       }
     };
   }
   else
     {
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
+      bName(), switchBtn(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();
     };
   }
 }
@@ -178,7 +178,7 @@
       document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
   </script>
 
-  <script>function switchTest()
+  <script>function switchBtn()
     {const buttonElement = document.getElementsByClassName('btn');
       for (i = 0; i < buttonElement.length; i++) { 
       buttonElement[i].classList.toggle("toDark");}
@@ -186,9 +186,23 @@
   </script>
 
    <script>function switchHeader() {
-  const bar = document.getElementsByClassName('headerL');
-      for (i = 0; i < bar.length; i++) {
-      bar[i].classList.toggle("headerD");}
+  const head = document.getElementsByClassName('headerL');
+      for (i = 0; i < head.length; i++) {
+      head[i].classList.toggle("headerD");}
+
+  const headText = document.getElementsByClassName('headerTextL');
+      for (i = 0; i < headText.length; i++) {
+      headText[i].classList.toggle("headerTextD");}      
+}</script>
+
+   <script>function switchFooter() {
+  const foot = document.getElementsByClassName('footerL');
+      for (i = 0; i < foot.length; i++) {
+      foot[i].classList.toggle("footerD");}
+
+  const footText = document.getElementsByClassName('footerTextL');
+      for (i = 0; i < footText.length; i++) {
+      footText[i].classList.toggle("footerTextD");}      
 }</script>
 
 <script>function addSmall(){ /* function to make navbar smaller on scroll*/
@@ -206,9 +220,9 @@
 </script>
 
 <script>function switchNav() {
-  const bar = document.getElementsByClassName('BarEh');
+  const bar = document.getElementsByClassName('navBarL');
       for (i = 0; i < bar.length; i++) {
-      bar[i].classList.toggle("BarEhDark");}
+      bar[i].classList.toggle("navBarD");}
 }</script>
 
 <script>function showDDown() {
@@ -294,6 +308,15 @@ window.onclick = function(e) {
 -'headerL' = the header class
 -'headerD' = use to toggle the header to dark mode
 
+-'headerTextL' = the header text class
+-'headerTextD' = use to toggle the header text to dark mode
+
+-'footerL' = the footer class
+-'footerD' = use to toggle the footer to dark mode
+
+-'footerTextL' = the footer text class
+-'footerTextD' = use to toggle the footer text to dark mode
+
 -'navbarL' = the navbar class
 -'navbarD' = use to toggle the navbar to dark mode
 
@@ -324,12 +347,12 @@ See the button with the id 'buttonSwitchModesId' for an example.
 
   <!-- [START] 'main web design' -->
 
-<header>
-  <h1 class="headerText unselectable">LikeJeppy</h1>
-</header>
+<div class="headerL">
+  <h1 class="headerTextL unselectable">LikeJeppy</h1>
+</div>
 
-<div id="navbarID" class="BarEh nBar"> 
-  <a class="home active testCl navBtn" href="javascript:void(0)">Home</a
+<div id="navbarID" class="navBarL nBar"> 
+  <a class="home active navBarMargin navBtn" href="javascript:void(0)">Home</a
   ><a class="news navBtn" href="javascript:void(0)">News</a
     ><div class="dropdown">
     <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow(), showDDown()">Products
@@ -440,9 +463,9 @@ function myFunction() {
   <br class="unselectable">
 </div>
 
-<footer>
-  <h1 class="footerText unselectable">Footer, of niet dan?</h1>
-</footer>
+<div class="footerL">
+  <h1 class="footerTextL unselectable">Footer, of niet dan?</h1>
+</div>
 
   <!-- [END] 'footer' -->
 
