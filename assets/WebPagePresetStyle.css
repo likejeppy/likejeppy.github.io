@@ -262,6 +262,9 @@ section {
   background-color: rgb(229,229,229);
 }
 .dropdown:hover .dropdown-content {
+  display: none;
+}
+.dropdownShow:hover .dropdown-content {
   display: block;
 }
 

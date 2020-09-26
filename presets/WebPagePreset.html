@@ -211,6 +211,12 @@
       bar[i].classList.toggle("BarEhDark");}
 }</script>
 
+<script>function showDDown() {
+  const bar = document.getElementsByClassName('dropdown');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("dropdownShow");}
+}</script>
+
 <script>function switchDDown() {
   const ddown = document.getElementsByClassName('dropdown-content');
       for (i = 0; i < ddown.length; i++) {
@@ -267,7 +273,8 @@ window.onclick = function(e) {
   var myDropdown = document.getElementById("myDropdown");
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
-	  changeArrow();
+      showDDown();
+    changeArrow();
    }
   }
 }
@@ -325,7 +332,7 @@ See the button with the id 'buttonSwitchModesId' for an example.
   <a class="home active testCl navBtn" href="javascript:void(0)">Home</a
   ><a class="news navBtn" href="javascript:void(0)">News</a
     ><div class="dropdown">
-    <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow()">Products
+    <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow(), showDDown()">Products
     <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
     <div class="dropdown-content" id="myDropdown">
       <a class="DDownLink" href="#">Link 1</a>
