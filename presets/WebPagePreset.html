@@ -102,16 +102,16 @@
     document.getElementById('buttonSwitchModesId').onclick = function () {
     var tmp= localStorage.getItem('cookiesKey');
       if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();}
+        {cc.destroy(), bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader();}
       else
-      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();
+      {bName(), changeCookies(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
       }
     };
   }
   else
     {
     document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), resetActive();
+      bName(), switchTest(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader();
     };
   }
 }
@@ -241,7 +241,7 @@
 }
 </script>
 
-<script>function resetActive(){
+<script>function resetActive(){ /* changes the active tab to 'home' */
   const curActive = document.getElementsByClassName('active');
       for (i = 0; i < curActive.length; i++) {
       curActive[i].classList.remove("active");}
