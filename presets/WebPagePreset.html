@@ -260,13 +260,15 @@ function clickDDown() {
 }
 
 // Close the dropdown if the user clicks outside of it
+
+
 window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
+  if (!e.target.matches('.DDownLink') && !e.target.matches('.dropbtn')) {
   var myDropdown = document.getElementById("myDropdown");
     if (myDropdown.classList.contains('show')) {
       myDropdown.classList.remove('show');
-      changeArrow();
-    }
+	  changeArrow();
+   }
   }
 }
 </script>
@@ -326,9 +328,9 @@ See the button with the id 'buttonSwitchModesId' for an example.
     <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow()">Products
     <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
     <div class="dropdown-content" id="myDropdown">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
+      <a class="DDownLink" href="#">Link 1</a>
+      <a class="DDownLink" href="#">Link 2</a>
+      <a class="DDownLink" href="#">Link 3</a>
     </div>
   </div
   ><a class="about navBtn" href="javascript:void(0)">About</a>
