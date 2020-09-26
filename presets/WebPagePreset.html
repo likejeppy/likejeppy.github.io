@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
+    <script src="script.js"></script>
   </head>
 
-<body onload="checkCookies(), bName(), loadCookies(), checkMode()"> 
+<body onload="checkCookies(), bName(), loadCookies(), checkMode(), changeActive()"> 
 
   <!-- [START] 'cookies preset' -->
 
@@ -216,6 +217,49 @@
       ddown[i].classList.toggle("dropdown-contentDark");}
 }</script>
 
+<script>function changeArrow() {
+  const arrow = document.getElementById('arrowBtn');{
+        if (arrow.className == 'fa fa-angle-down') {
+          arrow.className = 'fa fa-angle-up';
+        }
+        else{
+          arrow.className = 'fa fa-angle-down';
+        };}}
+</script>
+
+<script>function changeActive(){
+  $("a").on("click", function(event){
+    if (event.target.className.indexOf('navBtn') >-1 ) {
+      const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const curClass = document.getElementsByClassName(event.target.className);
+      for (i = 0; i < curClass.length; i++) {
+      curClass[i].classList.add("active");}}
+})
+}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickDDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+      changeArrow();
+    }
+  }
+}
+</script>
+
   <!-- [END] 'dark/light mode preset' -->
 
 
@@ -265,18 +309,18 @@ See the button with the id 'buttonSwitchModesId' for an example.
 </header>
 
 <div id="navbarID" class="BarEh nBar"> 
-  <a class="active testCl" href="javascript:void(0)">Home</a
-  ><a href="javascript:void(0)">News</a
-  	><div class="dropdown">
-  	<a class="dropbtn" href="javascript:void(0)">Products
-  	<i class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
-		<div class="dropdown-content">
-			<a href="#">Link 1</a>
-			<a href="#">Link 2</a>
-			<a href="#">Link 3</a>
-		</div>
+  <a class="home active testCl navBtn" href="javascript:void(0)">Home</a
+  ><a class="news navBtn" href="javascript:void(0)">News</a
+    ><div class="dropdown">
+    <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow()">Products
+    <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
   </div
-  ><a href="javascript:void(0)">About</a>
+  ><a class="about navBtn" href="javascript:void(0)">About</a>
 </div>
 
 <script> /* script to keep navbar at top (has to be below navbar design) */

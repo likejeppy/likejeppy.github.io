@@ -315,6 +315,10 @@ section {
   background-color: rgb(56,56,56);
 }
 
+.show {
+  display: block;
+}
+
 @media only screen and (max-width: 1919px){ /* not fullscreen */
 section {
   display: -webkit-flex;
