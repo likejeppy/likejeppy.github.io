@@ -181,23 +181,16 @@ section {
   text-decoration: none;
 }
 .navBarL a:hover{
-  background-color: rgb(255,255,255);
+  background-color: rgb(242,242,242);
   color: rgb(3,3,3);
-  font-weight: bold;
 }
 .navBarL a.active {
-  background-color: rgb(255,255,255);
-  color: #EB4034;
-  font-weight: bold;
-  border-bottom: solid;
-  border-bottom-color: #EB4034;
+  background-color: rgb(229,229,229);
+  color: rgb(3,3,3);
 }
 .navBarL a.active:hover {
-  background-color: rgb(255,255,255);
-  color: #EB4034;
-  font-weight: bold;
-  border-bottom: solid;
-  border-bottom-color: #EB4034;
+  background-color: rgb(217,217,217);
+  color: rgb(3,3,3);
 }
 .dropdown {
   display: inline-block;
@@ -247,23 +240,16 @@ section {
   text-decoration: none;
 }
 .navBarD a:hover {
-  background-color: rgb(32,32,32);
+  background-color: rgb(56,56,56);
   color: white;
-  font-weight: bold;
 }
 .navBarD a.active {
-  background-color: rgb(32,32,32);
-  color: #EB4034;
-  font-weight: bold;
-  border-bottom: solid;
-  border-bottom-color: #EB4034;
+  background-color: rgb(56,56,56);
+  color: white;
 }
 .navBarD a.active:hover {
-  background-color: rgb(32,32,32);
-  color: #EB4034;
-  font-weight: bold;
-  border-bottom: solid;
-  border-bottom-color: #EB4034;
+  background-color: rgb(76,76,76);
+  color: white;
 }
 .dropdown-contentDark {
   display: none;
