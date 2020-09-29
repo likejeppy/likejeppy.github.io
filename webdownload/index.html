@@ -14,111 +14,7 @@
     <script src="script.js"></script>
   </head>
 
-<body onload="checkCookies(), bName(), loadCookies(), checkMode(), changeActive()"> 
-
-  <!-- [START] 'cookies preset' -->
-
-  <script>function checkCookies() {
-    var tmp= localStorage.getItem('webdownloadCookiesKey');
-    /* add: '
-    localStorage.setItem('webdownloadCookiesKey', "False");
-    alert(tmp);
-    'to change value back to 'False' to show popup again */
-    if(tmp === null) {
-    localStorage.setItem('webdownloadCookiesKey', "False");}}
-   </script>
-   
-  <script>
-      var bgColourCode = '#eaeaeb'; /* #222222 = dark mode, #eaeaeb = light mode */
-      var bgTextColourCode = '#000000';/*#ffffff = dark mode, #000000 = light mode*/
-      var bgLinkColourCode = '#2f2f2f';/*#d3d3d3 = dark mode, #2f2f2f = light mode*/
-      var btnColourCode = '#eb4034'; /* #f1d600 = yellow */
-      var btnTextColourCode = '#ffffff'; /* #000000 = black */
-    </script>
-    <script>function changeCookies() {
-      if(modeSwitched == false) /* dark mode */
-        {bgColourCode = '#222222', bgTextColourCode = '#ffffff', 
-        bgLinkColourCode = '#d3d3d3', btnColourCode = '#eb4034', 
-        btnTextColourCode = '#ffffff';}
-      else /* light mode */
-        {bgColourCode = '#eaeaeb', bgTextColourCode = '#000000', 
-        bgLinkColourCode = '#2f2f2f', btnColourCode = '#eb4034', 
-        btnTextColourCode = '#ffffff';}}
-     </script>
-     <script>function openCookies() {cc.open()}</script>
-     <script>function closeCookies() {cc.close()}</script>
-
-  <script src="https://likejeppy.github.io/assets/cookiescript.js"></script>
-  <script src="https://likejeppy.github.io/assets/cookieconsent.min.js"></script>
-  <script>function loadCookies() {
-    var tmp= localStorage.getItem('webdownloadCookiesKey');
-    if(tmp === 'False'){
-    const cc = new CookieConsent({
-      type: 'info',
-      theme: 'classic',
-      showLink: true, /* set to 'false' to remove 'Learn more' with link*/
-      palette: {
-        popup: { background: bgColourCode, text: bgTextColourCode, 
-          link: bgLinkColourCode},
-        button: { background: btnColourCode,text: btnTextColourCode }
-        /* light mode - 
-        (main) background: '#eaeaeb', text: '#000000', link: '#2f2f2f'
-        (button) background: '#f1d600', text: '#000000'
-            dark mode - 
-        (main) background: '#222222', text: '#ffffff', link: '#d3d3d3'
-        (button) background: '#f1d600', text: '#000000'
-        */
-      },
-      content: {
-        header: 'Cookies used on the website!',
-        message: 'This website uses cookies to improve your experience.',
-        dismiss: 'Got it!', /* not used with type: 'opt-in'/'opt-out' */
-        allow: 'Allow cookies', /* not used with type: 'info' */
-        deny: 'Decline', /* not used with type: 'info' */
-        link: 'Learn more',
-        href: 'https://www.cookiesandyou.com',
-        close: '&#x274c;',
-        policy: 'Cookie Policy',
-        target: '_blank',
-      },
-      cookie: {
-      domain: '', /* change to 'local' to keep showing popup, else keep empty*/
-      expiryDays: -1, /* -1 = never expires */
-      },
-      location: false, /* if true: attempts to get the country code from the first  service, and only if the service fails do we move onto the next service. If all services fail, the popup is opened without modification. 
-
-        If a service succeeds, then the two letter country code is passed to the ‘Law’ module, with changes your popup options depending on the cookie laws in the country code.*/
-      law: {
-      regionalLaw: false, /* false = only show popup when required by law (checked via location), true = always show popup */
-      },     
-    })
-
-    cc.on( "statusChanged", function () {
-      var tmp= localStorage.getItem('webdownloadCookiesKey');
-    if(tmp === 'False') {
-    localStorage.setItem('webdownloadCookiesKey', "True");}
-    })
-
-    document.getElementById('buttonSwitchModesId').onclick = function () {
-    var tmp= localStorage.getItem('webdownloadCookiesKey');
-      if(tmp === 'False')
-        {cc.destroy(), bName(), changeCookies(), switchBtn(), darkLightToggle(), toggleArticle(), loadCookies(), switchMainText(), switchSecondaryText(),changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();}
-      else
-      {bName(), changeCookies(), switchBtn(), darkLightToggle(), toggleArticle(), switchMainText(),switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();
-      }
-    };
-  }
-  else
-    {
-    document.getElementById('buttonSwitchModesId').onclick = function () {
-      bName(), switchBtn(), darkLightToggle(), toggleArticle(), switchMainText(), switchSecondaryText(), changeDarkMode(), switchNav(), switchDDown(), switchHeader(), switchFooter();
-    };
-  }
-}
-  </script>
-
-  <!-- [END] 'cookies preset' -->
-
+<body onload="changeActive()"> 
 
   <!-- [START] 'dark/light mode preset' -->
 
@@ -347,16 +243,16 @@ See the button with the id 'buttonSwitchModesId' for an example.
 
   <!-- [START] 'main web design' -->
 
-<div class="headerL">
-  <h1 class="headerTextL unselectable">LikeJeppy</h1>
+<div class="header">
+  <h1 class="headerText unselectable">LikeJeppy</h1>
 </div>
 
-<div id="navbarID" class="navBarL nBar"> 
+<div id="navbarID" class="navBarD nBar"> 
   <a class="home active navBarMargin navBtn" href="javascript:void(0)">Home</a
   ><div class="dropdown">
     <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow(), showDDown()">Links
     <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
-    <div class="dropdown-content" id="myDropdown">
+    <div class="dropdown-contentDark" id="myDropdown">
       <a class="DDownLink" href="downloads.html">Downloads</a>
     </div>
   </div
@@ -380,42 +276,19 @@ function myFunction() {
 }
 </script>
 
- <div align="center">
-  <br class="unselectable">
-  <a class="mainTextLight">Testing this now, eh?</a>
-  <br class="unselectable">
-  <br class="unselectable">
-  <a class="mainTextLight">neef</a>
-  <br class="unselectable">
-  <br class="unselectable">
-  <a class="secondaryTextLight">Wank this is stank</a>
-  <br class="unselectable">
-  <br class="unselectable">
- </div>
-
- <div align="center">
-  <a style="text-decoration:none;" id="buttonSwitchModesId" 
-  class="btn unselectable"></a>
-  <br class="unselectable">
-  <br class="unselectable"> 
-  <a style="text-decoration:none;" class="btn unselectable" 
-  onclick="alert('&quot;insert function&quot;')" 
-  >Normal Button</a>
- </div>
-
  <div class="empty">
   <br class="unselectable">
   <br class="unselectable">
  </div>
 
 <section>
-<div class="article">
-  <div align="center" class="mainTextLight">
+<div class="articleDark">
+  <div align="center" class="mainTextDark">
     <h2 style="font-size: 25px;">Whatever mate ddadwa</h2>
   <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 and earlier versions.</p>
   </div>
 
-  <div  class="secondaryTextLight">
+  <div  class="secondaryTextDark">
     <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis dignissim felis a tristique. Etiam elementum eget tortor hendrerit posuere. Morbi erat felis, iaculis eu egestas porta, pharetra ac justo. Sed vitae nunc feugiat, vulputate elit quis, dictum turpis. Donec sit amet eros justo. Sed ut turpis bibendum, laoreet massa eu, accumsan sapien. Suspendisse luctus imperdiet luctus. Morbi congue arcu leo. Aliquam quis tristique neque.</a>
     <br class="unselectable">
     <br class="unselectable">
@@ -460,8 +333,8 @@ function myFunction() {
   <br class="unselectable">
 </div>
 
-<div class="footerL">
-  <h1 class="footerTextL unselectable">Footer, of niet dan?</h1>
+<div class="footer">
+  <h1 class="footerText unselectable">Footer, of niet dan?</h1>
 </div>
 
   <!-- [END] 'footer' -->
