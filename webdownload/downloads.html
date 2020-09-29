@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Download</title>
     <meta name="description" content="Roughly 155 characters">
     <link rel="icon" type="image/png" sizes="32x32" href="chrome://branding/content/icon32.png"/>
@@ -48,18 +48,23 @@
   		<a style="text-decoration:none;" class="btn unselectable" 
   		href="files/Countries.xlsx" >Countries Excel</a>
   		<br class="unselectable differentiate">
-	  </div>
+	</div>
 
 	<!-- [END] 'buttons' -->
 
-  <div class="empty">
-    <br class="unselectable">
-    <br class="unselectable">
-  </div>
 
-  <div class="footer">
-    <h1 class="footerText unselectable">Footer, of niet dan?</h1>
-  </div>
+	<!-- [START] 'footer' -->
+
+  	<div class="empty">
+    	<br class="unselectable">
+    	<br class="unselectable">
+  	</div>
+
+  	<div class="footer">
+    	<h1 class="footerText unselectable">Footer, of niet dan?</h1>
+  	</div>
+
+  	<!-- [END] 'footer' -->
 
 
 	<!-- [START] 'scripts' -->
@@ -116,6 +121,38 @@ window.onclick = function(e) {
       bar[i].classList.toggle("dropdownShow");}
 }</script>
 
+<script> /* script to keep navbar at top (has to be below navbar design) */
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarID");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    addSmall();
+    navbar.classList.add("sticky")
+  } else {
+    removeSmall();
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<script>function addSmall(){ /* function to make navbar smaller on scroll*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "85%";}
+}
+</script>
+
+<script>function removeSmall(){/*function to make navbar big again on top*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "100%";}
+}
+</script>
+
 	<!-- [END] 'scripts' -->
+	
   </body>
 </html>
