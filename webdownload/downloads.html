@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Download</title>
+    <meta name="description" content="Roughly 155 characters">
+    <link rel="icon" type="image/png" sizes="32x32" href="chrome://branding/content/icon32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="chrome://branding/content/icon16.png"/>
+    <link rel="stylesheet" href="style/downloadStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+  
+  <body>
+  	<!-- [START] 'header' -->
+
+    <div class="header">
+      <h1 class="headerText unselectable">Downloads</h1>
+    </div>
+
+    <!-- [END] 'cookies preset' -->
+
+
+    <!-- [START] 'navbar' -->
+
+    <div id="navbarID" class="navBar nBar"> 
+      <a class="home active navBarMargin navBtn" href="javascript:void(0)">Home</a
+    ><div class="dropdown">
+      <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow(), showDDown()">Links
+      <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
+    <div class="dropdown-content" id="myDropdown">
+      <a class="DDownLink" href="index.html">Back</a>
+    </div>
+  	</div
+      >
+	</div>
+
+	<!-- [END] 'navbar' -->
+
+
+	<!-- [START] 'buttons' -->
+
+  	<div align="left" class="colum">
+  		<a style="text-decoration:none;" class="btn unselectable" 
+  		href="files/Countries.xlsx" >Countries Excel</a>
+  		<br class="unselectable differentiate">
+	</div>
+
+	<!-- [END] 'buttons' -->
+
+
+	<!-- [START] 'scripts' -->
+
+  <script>function changeActive(){
+  $("a").on("click", function(event){
+    if (event.target.className.indexOf('navBtn') >-1 && !event.target.matches('.dropbtn')) {
+      const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const curClass = document.getElementsByClassName(event.target.className);
+      for (i = 0; i < curClass.length; i++) {
+      curClass[i].classList.add("active");}}
+})
+}
+</script>
+
+<script>function changeArrow() {
+  const arrow = document.getElementById('arrowBtn');{
+        if (arrow.className == 'fa fa-angle-down') {
+          arrow.className = 'fa fa-angle-up';
+        }
+        else{
+          arrow.className = 'fa fa-angle-down';
+        };}}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickDDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+
+
+window.onclick = function(e) {
+  if (!e.target.matches('.DDownLink') && !e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+      showDDown();
+    changeArrow();
+   }
+  }
+}
+</script>
+
+<script>function showDDown() {
+  const bar = document.getElementsByClassName('dropdown');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("dropdownShow");}
+}</script>
+
+	<!-- [END] 'scripts' -->
+  </body>
+</html>

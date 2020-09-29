@@ -1,0 +1,146 @@
+/* All the page colours can be edited here.
+
+   -The cookie pupop colours can be edited in the original .html file 
+   on the function: 'changeCookies'.
+
+   -The size of the navbar when scrolling down 
+   can be changed on the function: 'addSmall'.
+*/
+
+body {
+  margin: 0;
+  font-size: 25px;
+  color: rgb(3,3,3);
+  background-color: rgb(24,24,24);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn { /* button color (light mode) */
+  border: none; border-width:1px; /* change 'none' to 'solid' to add border */
+  padding: 14px 28px;
+  cursor: pointer; 
+  background-color: rgb(33,33,33); color: rgb(255,255,255);}
+  .btn:hover {background-color: rgb(56,56,56); /* button color on hover (light mode) */
+}
+
+.mainTextDark { /* text style of text with 'mainTextDark' class (dark mode) */
+  color: rgb(255,255,255);
+  font-size: 1.5em;  /* similar to <h2> */
+  font-weight: bolder; /* similar to <h2> */
+}
+
+.secondaryTextDark { /* text style of text with 'secondaryTextDark' class (dark mode) */
+  color: #f6f6f6;
+  font-size: 1.0em; /* similar to <p> */
+}
+
+.unselectable { /* class to make text unselectable */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.colum{
+  margin-left: 22.68%;
+  margin-top: 50px;
+}
+.differentiate{
+  margin-bottom: 35px;
+}
+
+.empty {
+  font-size: 10px;
+}
+
+.navBarMargin{
+  margin-left: 22.68%;
+}
+
+.header { /* header style (dark mode) */
+  height: auto; 
+  background-color: #EB4034;
+  position: static;
+  top: 0;
+  width: auto;
+  min-width: 1040px;
+}
+.headerText { /* header text style (dark mode) */
+  color: white; 
+  padding: 24px; 
+  margin: 0; 
+  text-align: center;
+}
+
+.navBar{
+  list-style-type:  none;
+  margin: 0;
+  padding: 0;
+  /*overflow: hidden;*/
+  width: auto;
+  min-width: 1040px;
+  z-index: 2;
+  background-color: rgb(32,32,32);
+}
+.navBar a {
+  display: inline-block;
+  color: rgb(255,255,255);
+  padding: 14px 16px; /* navbar size (light mode) */
+  text-decoration: none;
+}
+.navBar a:hover {
+  background-color: rgb(32,32,32);
+  color: white;
+  font-weight: bold;
+}
+.navBar a.active {
+  background-color: rgb(32,32,32);
+  color: #EB4034;
+  font-weight: bold;
+  border-bottom: solid;
+  border-bottom-color: #EB4034;
+}
+.navBar a.active:hover {
+  background-color: rgb(32,32,32);
+  color: #EB4034;
+  font-weight: bold;
+  border-bottom: solid;
+  border-bottom-color: #EB4034;
+}
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(32,32,32);
+  color: rgb(255, 255, 255);
+  width: 140px;
+  box-shadow: 5px 10px 10px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  width: 108px;
+  z-index: 1;
+}
+.dropdown-content a:hover {
+  background-color: rgb(56,56,56);
+}
+.dropdown:hover .dropdown-content {
+  display: none;
+}
+.dropdownShow:hover .dropdown-content {
+  display: block;
+}
+
+.show {
+  display: block;
+}
