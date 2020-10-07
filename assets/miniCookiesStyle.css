@@ -1,3 +1,4 @@
+/* [START] 'fonts' */
 @font-face {
   font-family: "MINIRegular";
   src: url("https://likejeppy.github.io/assets/fonts/mini_serif-regular-web.woff") format("woff");
@@ -11,36 +12,15 @@
   font-style: normal;
   font-display: swap;
 }
+/* [END] 'fonts' */
 
-/* [START] 'main web' */
-body{
-  background-color: #0d161c;
-  font-family: Arial, Helvetica, sans-serif;
-  color: white;
-  overflow: visible;
-}
-p{
-  font-size: 18px;
-  margin: 4px;
-}
-h2{
-  font-size: 25px;
-  margin: 4px;
-}
-br {  /* also needed for cookie preset */
+
+/* [START] 'extras' */
+br {  
    display: block;
    margin: 5px 0;
 }
-.article{
-  display: block;
-  font-size: 18px;
-  background-color: #152028;
-  margin: 12px;
-  margin-left: 22.68%;
-  margin-right: 22.68%;
-  padding: 5px;
-}
-.unselectable { /* class to make text unselectable (also needed for cookie preset) */
+.unselectable { 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -48,7 +28,7 @@ br {  /* also needed for cookie preset */
   -ms-user-select: none;
   user-select: none;
 }
-/* [END] 'main web' */
+/* [END] 'extras' */
 
 
 /* [START] 'cookies popup' */
@@ -168,8 +148,6 @@ a:visited {
   to {opacity: 1}
 }
 
-/* [END] 'cookies popup' */
-
 @media only screen and (max-width: 1879px){ /* when zoomed in or on smalled device */
 .modal-footer-button{
   border: solid; border-width:2.5px; border-color: #0085ac; /* change 'none' to 'solid' to add border */
@@ -181,3 +159,4 @@ a:visited {
   .modal-footer-button:hover {background-color: white; color: #4a4a4a; border-color: #0085ac; /* button color on hover (light mode) */
 }
 }
+/* [END] 'cookies popup' */
