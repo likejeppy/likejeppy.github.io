@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "MINIRegular";
+  src: url("https://likejeppy.github.io/assets/fonts/mini_serif-regular-web.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MINISansReg";
+  src: url("https://likejeppy.github.io/assets/fonts/mini_sans_serif-regular-web.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
 /* [START] 'main web' */
 body{
   background-color: #0d161c;
@@ -70,8 +84,9 @@ br {  /* also needed for cookie preset */
 .modal-header {
   width: 100%;
   box-shadow: 0 -5px 5px -5px #333;
-  font-family: 'Vollkorn', serif;
-  font-size: 23px;
+  font-family: 'MINIRegular', serif;
+  font-size: 24px;
+  line-height: 24px;
   padding: 2px 16px;
   padding-top: 12px;
   background-color: #ffffff;
@@ -79,13 +94,12 @@ br {  /* also needed for cookie preset */
 }
 
 .modal-body {
-  font-family: Noto Serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'MINIRegular', serif;
   padding: 2px 13px;
   padding-bottom: 22px; 
   padding-top: 15px;
-  font-weight: 400;
-  font-size: 18.5px;
-  opacity: 0.85;
 }
 .modal-body-hr {
   padding: 2px 16px;
@@ -104,8 +118,8 @@ a:link {
   text-decoration: none;
   border-bottom: 1px solid #000;
   display: inline-block;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-family: 'MINISansReg', Arial, sans-serif;
 }
 a:visited {
   color: black;
@@ -113,8 +127,8 @@ a:visited {
   text-decoration: none;
   border-bottom: 1px solid #000;
   display: inline-block;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-family: 'MINISansReg', Arial, sans-serif;
 }
 .modal-footer-btnDiv {
   padding: 48px 13px;
@@ -127,8 +141,8 @@ a:visited {
   border: solid; border-width:2.5px; border-color: #0085ac;
   padding: 10px 114px;
   cursor: pointer; 
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-family: 'MINISansReg', Arial, sans-serif;
   background-color: #0085ac; color: white;}
   .modal-footer-button:hover {background-color: white; color: #4a4a4a; border-color: #0085ac;
 }
