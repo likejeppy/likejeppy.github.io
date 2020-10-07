@@ -82,7 +82,7 @@ br {  /* also needed for cookie preset */
 .modal-body {
   font-family: Noto Serif;
   padding: 2px 13px;
-  padding-bottom: 30px; 
+  padding-bottom: 22px; 
   padding-top: 15px;
   font-weight: 400;
   font-size: 18.5px;
@@ -93,7 +93,8 @@ br {  /* also needed for cookie preset */
 }
 
 .modal-footer {
-  padding: 2px 13px;
+  padding: 10px 13px;
+  padding-bottom: 0px; 
   background-color: #ffffff;
   color: black;
   margin-left: 10.00%;
@@ -117,6 +118,13 @@ a:visited {
   font-weight: 500;
   font-size: 13px;
   font-family: Poppins;
+}
+.modal-footer-btnDiv {
+  padding: 38px 13px;
+  padding-top: 36px;
+  background-color: #ffffff;
+  color: black;
+  margin-left: 10.00%;
 }
 .modal-footer-button{
   border: solid; border-width:2.5px; border-color: #0085ac;
