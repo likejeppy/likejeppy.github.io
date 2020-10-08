@@ -74,9 +74,9 @@ br {
 }
 
 .modal-body {
+  font-family: 'MINIRegular', serif;
   font-size: 18px;
   line-height: 24px;
-  font-family: 'MINIRegular', serif;
   padding: 2px 13px;
   padding-bottom: 22px; 
   padding-top: 15px;
@@ -98,8 +98,9 @@ a:link {
   text-decoration: none;
   border-bottom: 1px solid #000;
   display: inline-block;
-  font-size: 16px;
   font-family: 'MINISansReg', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
 }
 a:visited {
   color: black;
@@ -107,8 +108,9 @@ a:visited {
   text-decoration: none;
   border-bottom: 1px solid #000;
   display: inline-block;
-  font-size: 16px;
   font-family: 'MINISansReg', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
 }
 .modal-footer-btnDiv {
   padding: 48px 13px;
