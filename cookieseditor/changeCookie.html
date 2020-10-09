@@ -139,9 +139,11 @@ function deleteCookie() {
   if(deleteCookie2 === null){
   	alert('Cookie does not exist!');
   }else{
-  	localStorage.removeItem(deleteCookie);
-  	alert('Successfully deleted cookie: ' + deleteCookie + '\nWith the value: ' + deleteCookie2);
-  }
+  	if (confirm('Are you sure you want to delete cookie: \'' + deleteCookie + '\'?\nCurrent cookie value: ' + deleteCookie2)) {
+  		localStorage.removeItem(deleteCookie);
+  		alert('Successfully deleted ' + deleteCookie);
+  }else {}
+ }
 }
 </script>
   <!-- [END] 'cookies scripts' -->
