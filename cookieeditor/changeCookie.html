@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Edit Cookies</title>
+  <meta name="description" content="Read, Edit or Delete a Cookie">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <style>
+ 	body{
+ 	  background-color: #0d161c;
+  	  font-family: Arial, Helvetica, sans-serif;
+  	  color: white; 
+  	  font-size: 25px;
+  	  overflow: hidden;
+  	  text-align: center;
+ 	}
+ 	input[type="text"]{
+      font-size:22px;
+      width: 80%;
+	}
+	input[type="button"]{
+	  margin: 10px;
+	  width: 80%;
+      font-size:22px;
+	}
+	br{
+	  display: block;
+	}
+	p{
+		margin-bottom: 5px;
+		margin-top: -13px;
+	}
+  </style>
+</head>
+
+<body>
+
+<br style="margin: 10px 0;">
+
+<p>Check Cookie Value</p>
+
+<div style="text-align: center; max-width: 20%; margin-left: 40%; margin-right: 40%; border-style: dotted; border-color: white;">
+<form>
+  <br style="margin: 1px 0;">
+  <label for="checkName">Check Cookie</label><br style="margin: 2px 0;">
+  <input type="text" id="checkName" name="checkName" value="check cookie"><br>
+  <input type="button" id="checkButton" value="Check" onclick="checkCookie()">
+</form>
+</div>
+
+<br style="margin: 20px 0;">
+
+<p>Change Cookie Value</p>
+
+<div style="text-align: center; max-width: 20%; margin-left: 40%; margin-right: 40%; border-style: dotted; border-color: white;">
+<form>
+  <br style="margin: 1px 0;">
+  <label for="changeName">Cookie Name:</label><br style="margin: 2px 0;">
+  <input type="text" id="changeName" name="changeName" value="cookie name"><br style="margin: 2px 0;">
+  <label for="changeValue">Change to:</label><br style="margin: 2px 0;">
+  <input type="text" id="changeValue" name="changeValue" value="new value"><br>
+  <input type="button" id="changeButton" value="Change" onclick="changeCookie()">
+</form>
+</div>
+
+<br style="margin: 20px 0;">
+
+<p>Delete Cookie</p>
+
+<div style="text-align: center; max-width: 20%; margin-left: 40%; margin-right: 40%; border-style: dotted; border-color: white;">
+<form>
+  <br style="margin: 1px 0;">
+  <label for="deleteName">Cookie Name</label><br style="margin: 2px 0;">
+  <input type="text" id="deleteName" name="deleteName" value="cookie name"><br>
+  <input type="button" id="deleteButton" value="Delete" onclick="deleteCookie()">
+</form>
+</div>
+
+  <!-- [START] 'cookies scripts ' -->
+<script>
+function checkCookie() {
+  var checkCookiesValue = document.getElementById("checkName").value; 
+  var checkCookiesValue2 = localStorage.getItem(checkCookiesValue);
+  if(checkCookiesValue2 === null){
+  	alert('Cookie value could not be found');
+  }else{
+  	alert('Current Value: ' + checkCookiesValue2);
+  }
+}
+
+function changeCookie() {
+  var changeCookieName = document.getElementById("changeName").value; 
+  var changeCookieName2 = localStorage.getItem(changeCookieName);
+  if(changeCookieName2 === null){
+  	alert('The cookie value could not be found!\nPlease make sure you\'ve typed the cookie name correctly, and try again.');
+  }else{
+  	var changeCookieValue = document.getElementById("changeValue").value;
+  	localStorage.setItem(changeCookieName, changeCookieValue);
+  	alert('Sucessfully changed \'' + changeCookieName + '\'s\' value \nfrom: ' + changeCookieName2 + '\nto: '+ changeCookieValue);
+  }
+}
+
+function deleteCookie() {
+  var deleteCookie = document.getElementById("deleteName").value;
+  var deleteCookie2 = localStorage.getItem(deleteCookie);
+  if(deleteCookie2 === null){
+  	alert('Cookie does not exist!');
+  }else{
+  	localStorage.removeItem(deleteCookie);
+  	alert('Successfully deleted cookie: ' + deleteCookie + '\nWith the value: ' + deleteCookie2);
+  }
+}
+</script>
+  <!-- [END] 'cookies scripts' -->
+
+  <!-- [END] 'cookies preset' -->
+
+</body>
+</html>
