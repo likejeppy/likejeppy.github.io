@@ -1,14 +1,14 @@
 /* [START] 'fonts' */
 @font-face {
   font-family: "MINIRegular";
-  src: url("https://likejeppy.github.io/assets/fonts/mini_serif-regular-web.woff") format("woff");
+  src: url("fonts/mini_serif-regular-web.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "MINISansReg";
-  src: url("https://likejeppy.github.io/assets/fonts/mini_sans_serif-regular-web.woff") format("woff");
+  src: url("fonts/mini_sans_serif-regular-web.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
