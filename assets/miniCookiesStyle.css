@@ -1,14 +1,14 @@
 /* [START] 'fonts' */
 @font-face {
   font-family: "MINIRegular";
-  src: url("fonts/mini_serif-regular-web.woff") format("woff");
+  src: url("https://likejeppy.github.io/assets/fonts/mini_serif-regular-web.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "MINISansReg";
-  src: url("fonts/mini_sans_serif-regular-web.woff") format("woff");
+  src: url("https://likejeppy.github.io/assets/fonts/mini_sans_serif-regular-web.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
@@ -152,13 +152,14 @@ a:visited {
 
 @media only screen and (max-width: 1879px){ /* when zoomed in or on smalled device */
 .modal-footer-button{
-  border: solid; border-width:2.5px; border-color: #0085ac; /* change 'none' to 'solid' to add border */
   padding: 10px 100px;
-  cursor: pointer; 
-  font-size: 14px;
-  font-weight: 600;
-  background-color: #0085ac; color: white;}
-  .modal-footer-button:hover {background-color: white; color: #4a4a4a; border-color: #0085ac; /* button color on hover (light mode) */
+}
+}
+
+@media only screen and (max-width: 1252px){ 
+.modal {
+  height: 100%; /* 1% to keep animation functioning, but enable page */
+  background-color: rgba(0,0,0,0.4); /* Black w/ 0.4 opacity */
 }
 }
 /* [END] 'cookies popup' */
