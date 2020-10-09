@@ -162,8 +162,11 @@ alert(cookiesStatus);
 
 function showPopup() {
   if(cookiesStatus != 'True'){
-  modal.style.display = "block";}
+  modal.style.display = "block";
   //body.style.overflow =  "hidden";  /* disable scrollbars */
+}else{
+  body.style.overflow =  "visible";
+}
 }
 
 // When the user accepts the cookies, close the modal
