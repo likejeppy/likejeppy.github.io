@@ -154,9 +154,15 @@ body{
 var body = document.body;
 var modal = document.getElementById("cookieModal");
 var acceptCookiesBtn = document.getElementById("acceptCookies");
+var cookiesStatus = localStorage.getItem('miniCookiesKey');
+/* add: '
+localStorage.setItem('miniCookiesKey', "False");
+alert(cookiesStatus);
+'to change value back to 'False' to show popup again */
 
 function showPopup() {
-  modal.style.display = "block";
+  if(cookiesStatus != 'True'){
+  modal.style.display = "block";}
   //body.style.overflow =  "hidden";  /* disable scrollbars */
 }
 
@@ -164,6 +170,7 @@ function showPopup() {
 acceptCookiesBtn.onclick = function() {
   modal.style.display = "none";
   body.style.overflow =  "visible"; /* re-enable scrollbars */
+  localStorage.setItem('miniCookiesKey', "True");
 }
 </script>
   <!-- [END] 'cookies scripts' -->
