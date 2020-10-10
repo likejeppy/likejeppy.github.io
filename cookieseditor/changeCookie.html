@@ -76,7 +76,7 @@
 <div class="box">
 <form>
   <label for="checkName">Cookie Name</label><br class="unselectable">
-  <input type="text" id="checkName" name="checkName" value="check cookie"><br class="unselectable">
+  <input type="text" id="checkName" name="checkName" value="name"><br class="unselectable">
   <input type="button" id="checkButton" value="Check" 
   onclick="checkCookie()">
 </form>
@@ -89,11 +89,26 @@
 <div class="box">
 <form>
   <label for="changeName">Cookie Name</label><br class="unselectable">
-  <input type="text" id="changeName" name="changeName" value="cookie name" style="margin-bottom: 4px;">
+  <input type="text" id="changeName" name="changeName" value="name" style="margin-bottom: 4px;">
   <br class="unselectable">
-  <label for="changeValue">Change to</label><br class="unselectable">
-  <input type="text" id="changeValue" name="changeValue" value="new value"><br class="unselectable">
+  <label for="changeValue">Change value to</label><br class="unselectable">
+  <input type="text" id="changeValue" name="changeValue" value="value"><br class="unselectable">
   <input type="button" id="changeButton" value="Change" onclick="changeCookie()">
+</form>
+</div>
+
+<br class="unselectable" style="margin: 20px 0;">
+
+<p>Create Cookie</p>
+
+<div class="box">
+<form>
+  <label for="createName">Cookie Name</label><br class="unselectable">
+  <input type="text" id="createName" name="createName" value="name" style="margin-bottom: 4px;">
+  <br class="unselectable">
+  <label for="createValue">Cookie Value</label><br class="unselectable">
+  <input type="text" id="createValue" name="createValue" value="value"><br class="unselectable">
+  <input type="button" id="createButton" value="Create" onclick="createCookie()">
 </form>
 </div>
 
@@ -104,7 +119,7 @@
 <div class="box">
 <form>
   <label for="deleteName">Cookie Name</label><br class="unselectable">
-  <input type="text" id="deleteName" name="deleteName" value="cookie name"><br class="unselectable">
+  <input type="text" id="deleteName" name="deleteName" value="name"><br class="unselectable">
   <input type="button" id="deleteButton" value="Delete" onclick="deleteCookie()">
 </form>
 </div>
@@ -115,7 +130,7 @@ function checkCookie() {
   var checkCookiesValue = document.getElementById("checkName").value; 
   var checkCookiesValue2 = localStorage.getItem(checkCookiesValue);
   if(checkCookiesValue2 === null){
-  	alert('Cookie value could not be found');
+  	alert('The cookie could not be found!\nPlease make sure you\'ve typed in the cookie name correctly, and then try again.');
   }else{
   	alert('Current Value: ' + checkCookiesValue2);
   }
@@ -125,11 +140,33 @@ function changeCookie() {
   var changeCookieName = document.getElementById("changeName").value; 
   var changeCookieName2 = localStorage.getItem(changeCookieName);
   if(changeCookieName2 === null){
-  	alert('The cookie value could not be found!\nPlease make sure you\'ve typed the cookie name correctly, and try again.');
+  	alert('The cookie could not be found!\nPlease make sure you\'ve typed in the cookie name correctly, and then try again.');
   }else{
   	var changeCookieValue = document.getElementById("changeValue").value;
-  	localStorage.setItem(changeCookieName, changeCookieValue);
-  	alert('Sucessfully changed \'' + changeCookieName + '\'s\' value \nfrom: ' + changeCookieName2 + '\nto: '+ changeCookieValue);
+  	if (confirm('Are you sure you want to change the value of: \'' + changeCookieName + '\'\nfrom: ' + changeCookieName2 + 
+  		'\nto: ' + changeCookieValue + '?')) {
+  		localStorage.setItem(changeCookieName, changeCookieValue);
+  		alert('Sucessfully changed: ' + changeCookieName + '\'s value \nfrom: ' + changeCookieName2 + '\nto: '+ changeCookieValue);
+  }else {}
+  }
+}
+
+function createCookie() {
+  var createCookieName = document.getElementById("createName").value;
+  var createCookieValue = document.getElementById("createValue").value;
+  if(createCookieName.length != 0 && createCookieValue.length != 0){
+  	var createCookieName2 = localStorage.getItem(createCookieName);
+  	if(createCookieName2 != null){
+  		alert('This cookie already exists.\nIf you want to change the value of this cookie, please go to the section above me!')
+  	}
+  	else{
+  		if (confirm('Are you sure you want to create the cookie: \'' + createCookieName + '\'\nwith the value: ' + createCookieValue)) {
+  		localStorage.setItem(createCookieName, createCookieValue);
+  		alert('Successfully created cookie: \'' + createCookieName + '\'\nWith value: ' + createCookieValue);
+  }		else {}}
+  }
+  else{
+  	alert('Failed to create cookie!\nPlease make sure you\'ve filled in the cookie name and value.');
   }
 }
 
@@ -137,7 +174,7 @@ function deleteCookie() {
   var deleteCookie = document.getElementById("deleteName").value;
   var deleteCookie2 = localStorage.getItem(deleteCookie);
   if(deleteCookie2 === null){
-  	alert('Cookie does not exist!');
+  	alert('The cookie could not be found!\nPlease make sure you\'ve typed in the cookie name correctly, and then try again.');
   }else{
   	if (confirm('Are you sure you want to delete cookie: \'' + deleteCookie + '\'?\nCurrent cookie value: ' + deleteCookie2)) {
   		localStorage.removeItem(deleteCookie);
