@@ -14,7 +14,6 @@
   	  font-family: Arial, Helvetica, sans-serif;
   	  color: white; 
   	  font-size: 25px;
-  	  overflow: auto;
   	  text-align: center;
  	}
  	input[type="text"]{
@@ -68,12 +67,10 @@
 <p>Check Cookie Value</p>
 
 <div class="box">
-<form>
   <label for="checkName">Cookie Name</label><br class="unselectable">
   <input type="text" id="checkName" name="checkName" value="name"><br class="unselectable">
   <input type="button" id="checkButton" value="Check" 
   onclick="checkCookie()">
-</form>
 </div>
 
 <br class="unselectable" style="margin: 20px 0;">
@@ -81,14 +78,12 @@
 <p>Change Cookie Value</p>
 
 <div class="box">
-<form>
   <label for="changeName">Cookie Name</label><br class="unselectable">
   <input type="text" id="changeName" name="changeName" value="name" style="margin-bottom: 4px;">
   <br class="unselectable">
   <label for="changeValue">Change value to</label><br class="unselectable">
   <input type="text" id="changeValue" name="changeValue" value="value"><br class="unselectable">
   <input type="button" id="changeButton" value="Change" onclick="changeCookie()">
-</form>
 </div>
 
 <br class="unselectable" style="margin: 20px 0;">
@@ -96,14 +91,12 @@
 <p>Create Cookie</p>
 
 <div class="box">
-<form>
   <label for="createName">Cookie Name</label><br class="unselectable">
   <input type="text" id="createName" name="createName" value="name" style="margin-bottom: 4px;">
   <br class="unselectable">
   <label for="createValue">Cookie Value</label><br class="unselectable">
   <input type="text" id="createValue" name="createValue" value="value"><br class="unselectable">
   <input type="button" id="createButton" value="Create" onclick="createCookie()">
-</form>
 </div>
 
 <br class="unselectable" style="margin: 20px 0;">
@@ -111,14 +104,11 @@
 <p>Delete Cookie</p>
 
 <div class="box">
-<form>
   <label for="deleteName">Cookie Name</label><br class="unselectable">
   <input type="text" id="deleteName" name="deleteName" value="name"><br class="unselectable">
   <input type="button" id="deleteButton" value="Delete" onclick="deleteCookie()">
-</form>
 </div>
 
-  <!-- [START] 'cookies scripts ' -->
 <script>
 function checkCookie() {
   var checkCookiesValue = document.getElementById("checkName").value; 
@@ -176,10 +166,55 @@ function deleteCookie() {
   }else {}
  }
 }
-</script>
-  <!-- [END] 'cookies scripts' -->
 
-  <!-- [END] 'cookies preset' -->
+/* ↓↓ When enter key cliked inside textboxes ↓↓ */
+
+var inputCheckName = document.getElementById("checkName");
+inputCheckName.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("checkButton").click();
+  }
+});
+
+var inputChangeName = document.getElementById("changeName");
+inputChangeName.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("changeButton").click();
+  }
+});
+var inputChangeValue = document.getElementById("changeValue");
+inputChangeValue.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("changeButton").click();
+  }
+});
+
+var inputCreateName = document.getElementById("createName");
+inputCreateName.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("createButton").click();
+  }
+});
+var inputCreateValue = document.getElementById("createValue");
+inputCreateValue.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("createButton").click();
+  }
+});
+
+var inputDeleteName = document.getElementById("deleteName");
+inputDeleteName.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("deleteButton").click();
+  }
+});
+</script>
 
 </body>
 </html>
