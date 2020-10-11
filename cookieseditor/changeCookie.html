@@ -19,6 +19,7 @@
  	input[type="text"]{
       font-size:22px;
       width: 80%;
+      color: #595959;
 	}
 	input[type="button"]{
 	  margin: 10px;
@@ -213,6 +214,44 @@ inputDeleteName.addEventListener("keyup", function(event) {
    event.preventDefault();
    document.getElementById("deleteButton").click();
   }
+});
+
+/* ↓↓ To clear textboxes and change text color to black ↓↓ */
+
+var checkNameClicked = false;
+var changeNameClicked = false;
+var changeValueClicked = false;
+var createNameClicked = false;
+var createValueClicked = false;
+var deleteNameClicked = false;
+$("input").keypress(function(event) {
+	var clickedElement = event.target;
+    var clickedId = event.target.id;
+    if(clickedId == "checkName" && checkNameClicked != true){
+    	checkNameClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }else if(clickedId == "changeName" && changeNameClicked != true){
+    	changeNameClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }else if(clickedId == "changeValue" && changeValueClicked != true){
+    	changeValueClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }else if(clickedId == "createName" && createNameClicked != true){
+    	createNameClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }else if(clickedId == "createValue" && createValueClicked != true){
+    	createValueClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }else if(clickedId == "deleteName" && deleteNameClicked != true){
+    	deleteNameClicked = true;
+    	clickedElement.value = "";
+    	clickedElement.style.color = 'black';
+    }
 });
 </script>
 
