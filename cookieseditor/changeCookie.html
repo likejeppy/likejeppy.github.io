@@ -248,9 +248,9 @@ $("input[type=text]").keydown(function(event) {
     clickedElement.value = "";
     clickedElement.style.color = 'black';
   }else if(clickedId == "deleteName" && deleteNameClicked != true){
-    deleteNameClicked = true;
-    clickedElement.value = "";
+    clickedElement.value = '';
     clickedElement.style.color = 'black';
+    deleteNameClicked = true;
   }
 });
 </script>
