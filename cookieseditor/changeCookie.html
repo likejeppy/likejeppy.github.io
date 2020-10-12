@@ -225,7 +225,7 @@ var createNameClicked = false;
 var createValueClicked = false;
 var deleteNameClicked = false;
 $("input[type=text]").keydown(function(event) {
-	var clickedElement = event.target;
+  var clickedElement = event.target;
   var clickedId = event.target.id;
   if(clickedId == "checkName" && checkNameClicked != true){
     checkNameClicked = true;
@@ -255,5 +255,15 @@ $("input[type=text]").keydown(function(event) {
 });
 </script>
 
+<script>
+function keyDown(event)
+{
+  var key = event.keyCode;
+  if(!((key >= 65 && key <= 90) || key < 48)) event.preventDefault();
+  document.getElementById('lel').value = "";
+}
+</script>
+<input type="text" id="lel" pattern="[A-Za-z]" placeholder="Keydown" onkeydown="keyDown(event)" value="wank"/>
+<br/>
 </body>
 </html>
