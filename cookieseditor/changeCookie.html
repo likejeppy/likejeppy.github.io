@@ -224,7 +224,7 @@ var changeValueClicked = false;
 var createNameClicked = false;
 var createValueClicked = false;
 var deleteNameClicked = false;
-$("input").keypress(function(event) {
+$("input").keydown(function(event) {
 	var clickedElement = event.target;
     var clickedId = event.target.id;
     if(clickedId == "checkName" && checkNameClicked != true){
