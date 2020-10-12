@@ -74,11 +74,12 @@ body {
   position: static;
   top: 0;
   width: auto;
-  min-width: 1040px;
+  min-width: 100%;
 }
 .headerText { /* header text style (dark mode) */
   color: white; 
   padding: 24px; 
+  padding-left: 0%;
   margin: 0; 
   text-align: center;
 }
@@ -89,7 +90,7 @@ body {
   position: static;
   bottom: 0;
   width: auto;
-  min-width: 1040px;
+  min-width: 100%;
   border-top: solid 3px;
   border-top-color: #15232b;
 }
@@ -103,9 +104,7 @@ body {
 section {
   display: -webkit-flex;
   display: flex;
-  width: 1040px;
-  max-width: 1040px;
-  min-width: 1040px;
+  width: 54.17%;
   margin-left: 22.68%;
   margin-right: 22.68%;
 }
@@ -136,7 +135,7 @@ section {
   padding: 0;
   /*overflow: hidden;*/
   width: auto;
-  min-width: 1040px;
+  min-width: 100%;
   z-index: 2;
   background-color: #15232b; /* 232B32 */
 }
@@ -208,18 +207,14 @@ section {
   width: 100%;
   opacity: 0.98; /* the opacity of the navbar when scrolling down */
 }
-}
-@media only screen and (max-width: 1879px){ /* not fullscreen */
 section {
   display: -webkit-flex;
   display: flex;
-  width: 1040px;
-  max-width: 1040px;
-  min-width: 1040px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 .navBarMargin {
-  margin-left: auto;
+  margin-left: 0;
 }
 }
