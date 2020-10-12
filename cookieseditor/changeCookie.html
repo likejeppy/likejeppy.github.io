@@ -225,8 +225,8 @@ var createNameClicked = false;
 var createValueClicked = false;
 var deleteNameClicked = false;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-$("input[type=text]").onfocus(function(event) {
-	var clickedElement = event.target;
+$("input[type=text]").focus(function(event) {
+  var clickedElement = event.target;
   var clickedId = event.target.id;
   if(clickedId == "checkName" && checkNameClicked != true){
     checkNameClicked = true;
@@ -256,7 +256,7 @@ $("input[type=text]").onfocus(function(event) {
 });
 }else{
 $("input[type=text]").keydown(function(event) {
-	var clickedElement = event.target;
+  var clickedElement = event.target;
   var clickedId = event.target.id;
   if(clickedId == "checkName" && checkNameClicked != true){
     checkNameClicked = true;
