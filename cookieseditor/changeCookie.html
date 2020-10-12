@@ -224,6 +224,37 @@ var changeValueClicked = false;
 var createNameClicked = false;
 var createValueClicked = false;
 var deleteNameClicked = false;
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+$("input[type=text]").onfocus(function(event) {
+	var clickedElement = event.target;
+  var clickedId = event.target.id;
+  if(clickedId == "checkName" && checkNameClicked != true){
+    checkNameClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }else if(clickedId == "changeName" && changeNameClicked != true){
+    changeNameClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }else if(clickedId == "changeValue" && changeValueClicked != true){
+    changeValueClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }else if(clickedId == "createName" && createNameClicked != true){
+    createNameClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }else if(clickedId == "createValue" && createValueClicked != true){
+    createValueClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }else if(clickedId == "deleteName" && deleteNameClicked != true){
+    deleteNameClicked = true;
+    clickedElement.value = "";
+    clickedElement.style.color = 'black';
+  }
+});
+}else{
 $("input[type=text]").keydown(function(event) {
 	var clickedElement = event.target;
   var clickedId = event.target.id;
@@ -253,6 +284,7 @@ $("input[type=text]").keydown(function(event) {
     clickedElement.style.color = 'black';
   }
 });
+}
 </script>
 
 </body>
