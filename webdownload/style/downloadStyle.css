@@ -184,7 +184,7 @@ body {
   opacity: 0.98; /* the opacity of the navbar when scrolling down */
 }
 }
-@media only screen and (max-width: 1919px){ /* not fullscreen */
+@media only screen and (max-width: 1879px){ /* not fullscreen */
 section {
   display: -webkit-flex;
   display: flex;
