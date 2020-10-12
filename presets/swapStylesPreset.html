@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Change Style Sheet</title>
+  <meta name="description" content="Preset to easily change style sheets">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <link id="styleS" rel="stylesheet" href="swapStylesPresetStyles/style1.css">
+  <script type="text/javascript">
+  	function swapSheets(sheet){
+  		document.getElementById('styleS').setAttribute('href', sheet);
+  	}
+
+  	var sheetVer = 1;
+  	function changeSheet(){
+  	if(sheetVer == 1){
+  		swapSheets('swapStylesPresetStyles/style2.css');
+  		sheetVer = 2;
+  	}else if(sheetVer == 2){
+  		swapSheets('swapStylesPresetStyles/style1.css')
+  		sheetVer = 1;
+  	}
+  }
+  </script>
+</head>
+
+<body>
+<button onclick="changeSheet()">Swap Styles</button>
+</body>
+</html>
