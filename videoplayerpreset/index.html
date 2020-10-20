@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video Player Preset</title>
+    <link rel="stylesheet" href="css/video.css">
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/fonts/ionicons.eot">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="js/video.js"></script>
+</head>
+<body>
+
+<!-- [START] 'video preset' -->
+<div class="container" style="margin-top:75px;">
+	<div id="player"></div>
+</div>
+<style>
+body *, * {
+  font-family: "Proxima Nova"; 
+}
+.pointer {
+  width: 100%;
+  margin: 0 auto;
+}
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+</style>
+<script>
+$(document).ready(function(){
+$('#player').video({
+  video: {
+	quality: [
+	{
+		label: '1080p',
+		src: 'https://vjs.zencdn.net/v/oceans.mp4?HD'
+	},
+	{
+		label: '720p',
+		src: 'https://vjs.zencdn.net/v/oceans.mp4?HD',
+		autoplay: false
+	},
+	{
+		label: '360p',
+		src: 'https://vjs.zencdn.net/v/oceans.mp4?SD'
+	}
+	],
+		title: 'huts.net'
+	},
+		audio: {
+    		volume: 100
+    },
+		dimensions: 1024
+		// Available diemnsions are: 2256, 1920, 1280, 1024, 768, 512
+	});
+});
+</script>
+<!-- [END] 'video preset' -->
+
+</body>
+</html>
