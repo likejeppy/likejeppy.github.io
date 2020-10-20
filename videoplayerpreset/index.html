@@ -61,9 +61,9 @@ var lastClicked = 'BODY';
 document.body.onkeyup = function(e){
     if(e.keyCode == 32){
     	var x = document.activeElement.className;
-    	if(x != 'vid-volume-control item' && lastClicked != 'BUTTON' || x == 'vid-request-fullscreen item'){
+    	if(x != 'vid-volume-control item' && lastClicked != 'BUTTON' || x == 'vid-request-fullscreen item' || x == ''){
     	document.querySelector('button.vid-play-btn.item').click();
-    	document.querySelector('button.vid-play-btn.item').focus();
+    	document.activeElement.blur();
     	lastClicked = 'vid-toggle-layer';
     }
     }

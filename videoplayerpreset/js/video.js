@@ -174,7 +174,7 @@ if (typeof Object.create !== "function") {
 			// set an active class for the current quality in buttons
 			$('.vid-quality-selector button').removeClass();
 			$('.vid-quality-selector button[data-index="'+currentQuality+'"]').addClass('active');
-			document.querySelector('button.vid-play-btn.item').focus();
+			document.activeElement.blur();
 			if (isMuted){
 				base.toggleVolumeMute($(this));
 			}
