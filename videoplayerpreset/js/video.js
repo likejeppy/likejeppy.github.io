@@ -18,6 +18,8 @@ if (typeof Object.create !== "function") {
 	}
 		currentQuality = null;
 		currentVolumeIcon = null;
+		var isMuted = false;
+		var isPaused = false;
 
 	function kFormat ( num ) {
 		if ( num >= 1000000 ) {
@@ -169,10 +171,16 @@ if (typeof Object.create !== "function") {
 				media.currentTime = base.options.currentTime;
 				base.decodeMedia();
 			});
-			base.togglePlay();
 			// set an active class for the current quality in buttons
 			$('.vid-quality-selector button').removeClass();
 			$('.vid-quality-selector button[data-index="'+currentQuality+'"]').addClass('active');
+			document.querySelector('button.vid-play-btn.item').focus();
+			if (isMuted){
+				base.toggleVolumeMute($(this));
+			}
+			if(!isPaused){
+				base.togglePlay();
+			}
 		},
 
 		renderProgress : function ( ) {
@@ -265,12 +273,13 @@ if (typeof Object.create !== "function") {
 			var base = this;
 
 			if (media.volume != 0) {
-
+				isMuted = true;
 				media.volume = 0;
 				element.find('i').removeClass().addClass('ion-android-volume-off flex align-center');
 				$('#vol-control').slider({value: 0});
 
 			} else {
+				isMuted = false;
 
 				if (currentVolumeIcon) {
 					element.find('i').removeClass().addClass(currentVolumeIcon);
@@ -353,12 +362,12 @@ if (typeof Object.create !== "function") {
 		isFullscreen : function () {
 			var base = this;
 			if (!window.screenTop && !window.screenY) {
-				$('.vid-wrapper').addClass('is-fullscreen');
-				$('.vid-wrapper button.vid-request-fullscreen i').removeClass('.ion-android-expand').addClass('ion-arrow-shrink')
+				$('.vid-wrapper').addClass('is-fullscreen'); //↓make active to switch between fullscreen icons↓
+				//$('.vid-wrapper button.vid-request-fullscreen i').removeClass('.ion-android-expand').addClass('ion-arrow-shrink')
 				base.exitFullscreen();
 			} else {
-				// if not fullscreen
-				$('.vid-wrapper button.vid-request-fullscreen i').addClass('.ion-android-expand').removeClass('ion-arrow-shrink')
+				// if not fullscreen //↓make active to switch between fullscreen icons↓
+				//$('.vid-wrapper button.vid-request-fullscreen i').addClass('.ion-android-expand').removeClass('ion-arrow-shrink')
 				$('.vid-wrapper').removeClass('is-fullscreen');
 			};
 
@@ -393,10 +402,12 @@ if (typeof Object.create !== "function") {
 			var isPlaying = media.currentTime > 0 && !media.paused && !media.ended && media.readyState > 2;
 			if (!isPlaying){
 				media.play();
+				isPaused = false;
 
 				$('.vid-wrapper').removeClass('paused');
 				$('.vid-play-btn').find('i').removeClass('ion-ios-play').addClass('ion-ios-pause');
 			} else {
+				isPaused = true;
 
 				$('.vid-wrapper').addClass('paused').addClass('mouse-entered');
 				$('.vid-play-btn').find('i').addClass('ion-ios-play').removeClass('ion-ios-pause');

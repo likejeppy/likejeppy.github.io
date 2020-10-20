@@ -53,10 +53,24 @@ $('#player').video({
 		audio: {
     		volume: 100
     },
-		dimensions: 1024
+		dimensions: 1280
 		// Available diemnsions are: 2256, 1920, 1280, 1024, 768, 512
 	});
 });
+var lastClicked = 'BODY';
+document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+    	var x = document.activeElement.className;
+    	if(x != 'vid-volume-control item' && lastClicked != 'BUTTON' || x == 'vid-request-fullscreen item'){
+    	document.querySelector('button.vid-play-btn.item').click();
+    	document.querySelector('button.vid-play-btn.item').focus();
+    	lastClicked = 'vid-toggle-layer';
+    }
+    }
+}
+$(document).on("click", function(event){
+    lastClicked  = event.target.nodeName;
+})
 </script>
 <!-- [END] 'video preset' -->
 
