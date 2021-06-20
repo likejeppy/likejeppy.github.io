@@ -1,0 +1,343 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Flips WebPage</title>
+    <meta name="description" content="Cookies popup test with a light/dark mode toggle">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/indexStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="script.js"></script>
+  </head>
+
+<body onload="changeActive()"> 
+
+  <!-- [START] 'dark/light mode preset' -->
+
+  <script>function checkMode() {
+        var mode= localStorage.getItem('webdownloadDarkMode');
+        if(mode === 'True') {
+      document.getElementById('buttonSwitchModesId').click();}}
+  </script>
+
+  <script>function changeDarkMode() {
+    if(modeSwitched == false) /* dark mode */ {
+      localStorage.setItem('webdownloadDarkMode', "True");
+    }else /* light mode */{
+      localStorage.setItem('webdownloadDarkMode', "False");
+    }}
+  </script>
+
+  <script>
+  window.onbeforeunload = function() {
+    changeDarkMode();
+}
+  </script>
+
+  <script>function darkLightToggle() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");} 
+    </script>
+
+    <script>function toggleArticle()
+    {const artClass = document.getElementsByClassName('article');
+      for (i = 0; i < artClass.length; i++) {
+      artClass[i].classList.toggle("articleDark");}
+    }
+   </script>
+
+    <script>function switchMainText()
+    {const mainTClass = document.getElementsByClassName('mainTextLight');
+      for (i = 0; i < mainTClass.length; i++) {
+      mainTClass[i].classList.toggle("mainTextDark");}
+    }
+  </script>
+
+    <script>function switchSecondaryText()
+    {const secTClass = document.getElementsByClassName('secondaryTextLight');
+      for (i = 0; i < secTClass.length; i++) {
+      secTClass[i].classList.toggle("secondaryTextDark");}
+    }
+  </script>
+
+  <script>
+    var modeSwitched = false;
+  </script>
+  <script>function bName() {var buttonText = "Dark Mode"
+    if(modeSwitched == false)                // d = dark, l = light
+      {buttonText = "Dark Mode", modeSwitched = true;} //switched to d mode
+    else {buttonText = "Light Mode", modeSwitched = false;} //switched to l mode
+      document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
+  </script>
+
+  <script>function switchBtn()
+    {const buttonElement = document.getElementsByClassName('btn');
+      for (i = 0; i < buttonElement.length; i++) { 
+      buttonElement[i].classList.toggle("toDark");}
+    }
+  </script>
+
+   <script>function switchHeader() {
+  const head = document.getElementsByClassName('headerL');
+      for (i = 0; i < head.length; i++) {
+      head[i].classList.toggle("headerD");}
+
+  const headText = document.getElementsByClassName('headerTextL');
+      for (i = 0; i < headText.length; i++) {
+      headText[i].classList.toggle("headerTextD");}      
+}</script>
+
+   <script>function switchFooter() {
+  const foot = document.getElementsByClassName('footerL');
+      for (i = 0; i < foot.length; i++) {
+      foot[i].classList.toggle("footerD");}
+
+  const footText = document.getElementsByClassName('footerTextL');
+      for (i = 0; i < footText.length; i++) {
+      footText[i].classList.toggle("footerTextD");}      
+}</script>
+
+<script>function addSmall(){ /* function to make navbar smaller on scroll*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "85%";}
+}
+</script>
+
+<script>function removeSmall(){/*function to make navbar big again on top*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "100%";}
+}
+</script>
+
+<script>function switchNav() {
+  const bar = document.getElementsByClassName('navBarL');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("navBarD");}
+}</script>
+
+<script>function showDDown() {
+  const bar = document.getElementsByClassName('dropdown');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("dropdownShow");}
+}</script>
+
+<script>function switchDDown() {
+  const ddown = document.getElementsByClassName('dropdown-content');
+      for (i = 0; i < ddown.length; i++) {
+      ddown[i].classList.toggle("dropdown-contentDark");}
+}</script>
+
+<script>function changeArrow() {
+  const arrow = document.getElementById('arrowBtn');{
+        if (arrow.className == 'fa fa-angle-down') {
+          arrow.className = 'fa fa-angle-up';
+        }
+        else{
+          arrow.className = 'fa fa-angle-down';
+        };}}
+</script>
+
+<script>function changeActive(){
+  $("a").on("click", function(event){
+    if (event.target.className.indexOf('navBtn') >-1 && !event.target.matches('.dropbtn')) {
+      const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const curClass = document.getElementsByClassName(event.target.className);
+      for (i = 0; i < curClass.length; i++) {
+      curClass[i].classList.add("active");}}
+})
+}
+</script>
+
+<script>function resetActive(){ /* changes the active tab to 'home' */
+  const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const homeClass = document.getElementsByClassName('home');
+      for (i = 0; i < homeClass.length; i++) {
+      homeClass[i].classList.add("active");}
+}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickDDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+
+
+window.onclick = function(e) {
+  if (!e.target.matches('.DDownLink') && !e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+      showDDown();
+	  changeArrow();
+   }
+  }
+}
+</script>
+
+  <!-- [END] 'dark/light mode preset' -->
+
+
+  <!-- [START] 'info' -->
+
+<!--
+[CLASS]
+(All of these classes can be edited in the 'cookiesdarklightswitchnavbarStyle.css' file)
+
+-'dark-mode' = use to toggle the webpage background to dark mode
+
+-'headerL' = the header class
+-'headerD' = use to toggle the header to dark mode
+
+-'headerTextL' = the header text class
+-'headerTextD' = use to toggle the header text to dark mode
+
+-'footerL' = the footer class
+-'footerD' = use to toggle the footer to dark mode
+
+-'footerTextL' = the footer text class
+-'footerTextD' = use to toggle the footer text to dark mode
+
+-'navbarL' = the navbar class
+-'navbarD' = use to toggle the navbar to dark mode
+
+-'btn' = the button class. Add this to all buttons
+-'toDark' = use to toggle the buttons to dark mode
+
+-'mainTextLight' = add this to all the headlines and titles on the site 
+-'mainTextDark' = use to toggle the main text colours to dark mode
+
+-'secondaryTextLight' = add this to all the other text that's not a title or headline
+-'secondaryTextDark' = use to toggle the secondary text colours to dark mode
+
+-'content' = adds some padding. (not necessary!)
+
+-'sticky' = class that's automatically added to the navbar when scrolling down
+
+-'unselectable' = add this to make the text unselectable. 
+This can be added to anything with text and can be especially useful on buttons
+
+[ID]
+-'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. 
+IMPORTANT: this can only be applied to one (1) button! Also: this button cannot have 'onclick' added to it! 
+See the button with the id 'buttonSwitchModesId' for an example.
+ -->
+
+  <!-- [END] 'info' -->
+
+
+  <!-- [START] 'main web design' -->
+
+<div class="header">
+  <h1 class="headerText unselectable">LikeJeppy</h1>
+</div>
+
+<div id="navbarID" class="navBarD nBar"> 
+  <a class="home active navBarMargin navBtn" href="javascript:void(0)">Home</a
+  ><div class="dropdown">
+    <a class="dropbtn navBtn" href="javascript:void(0)" onclick="clickDDown(), changeArrow(), showDDown()">Links
+    <i id="arrowBtn" class="fa fa-angle-down" style="margin-right: -7px;"></i></a>
+    <div class="dropdown-contentDark" id="myDropdown">
+      <a class="DDownLink" href="flips.html">Flips</a>
+    </div>
+  </div
+  >
+</div>
+
+<script> /* script to keep navbar at top (has to be below navbar design) */
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarID");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    addSmall();
+    navbar.classList.add("sticky")
+  } else {
+    removeSmall();
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+ <div class="empty">
+  <br class="unselectable">
+  <br class="unselectable">
+ </div>
+
+<section>
+<div class="articleDark">
+  <div align="center" class="mainTextDark">
+    <h2 style="font-size: 25px;">Whatever mate ddadwa</h2>
+  <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 and earlier versions.</p>
+  </div>
+
+  <div  class="secondaryTextDark">
+    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis dignissim felis a tristique. Etiam elementum eget tortor hendrerit posuere. Morbi erat felis, iaculis eu egestas porta, pharetra ac justo. Sed vitae nunc feugiat, vulputate elit quis, dictum turpis. Donec sit amet eros justo. Sed ut turpis bibendum, laoreet massa eu, accumsan sapien. Suspendisse luctus imperdiet luctus. Morbi congue arcu leo. Aliquam quis tristique neque.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec ut nunc scelerisque, aliquet tortor vitae, dignissim sem. Aenean eget pretium nunc. Sed laoreet, est eu suscipit vehicula, dui ex ullamcorper velit, a malesuada ligula dolor sed tellus. Nullam et erat nec nisl semper bibendum. Mauris consectetur, erat at dictum egestas, nisl sapien auctor libero, id vehicula felis nibh in justo. Phasellus non auctor odio, ut blandit elit. Duis vitae malesuada erat. Sed posuere ante in nibh efficitur finibus. Proin vel dui a ex pulvinar eleifend. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam luctus tellus a tellus tempus pharetra. Phasellus mollis, nisi ac semper ultricies, lectus libero commodo mauris, quis viverra quam ex at magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Curabitur in iaculis risus, in rutrum massa. Nunc volutpat, leo vel sollicitudin vehicula, tortor massa tincidunt odio, vitae varius turpis metus et sem. Suspendisse fermentum ipsum nec vestibulum tristique. Quisque vitae sagittis erat. Curabitur volutpat fringilla ex, et elementum dui. Quisque eleifend neque vitae elit imperdiet porttitor. Aenean vel dolor at risus eleifend mattis in sed magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Nulla nec nibh condimentum, faucibus ex eu, interdum risus. Aenean erat erat, aliquam varius nibh eget, accumsan dignissim tellus. Vestibulum dignissim in orci a pellentesque. Quisque non lectus ante. Quisque neque urna, pretium vel elementum a, posuere eget libero. Ut ultricies in justo eu tincidunt. Donec a viverra risus. Duis hendrerit viverra leo. Nullam fermentum viverra quam, id aliquam dolor elementum ac. Duis tempus elit a egestas cursus. Fusce ultricies turpis nibh, gravida molestie erat sollicitudin et. Aliquam pulvinar congue dolor. Aenean hendrerit vestibulum metus eu placerat.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Vestibulum et turpis volutpat dui mollis interdum. Proin vehicula lorem tortor, sed pellentesque nisl vulputate non. Duis vulputate, orci nec fringilla malesuada, ipsum ante tempor orci, quis ullamcorper mauris nunc eu orci. Morbi tristique in tortor vel consequat. Nulla vehicula efficitur nulla fermentum maximus. Aliquam erat volutpat. Phasellus eget elit vitae orci vestibulum malesuada sagittis sed nibh. Donec fringilla purus id mattis pretium. Nulla vestibulum porta dui.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec nec congue libero. Vivamus urna eros, dapibus vel urna quis, consequat rutrum urna. Vivamus ut placerat purus. Duis gravida turpis feugiat tellus tristique suscipit. Sed placerat sagittis semper. Pellentesque ac magna eleifend, elementum erat nec, egestas orci. Phasellus ligula tellus, dapibus sed tempus ut, dictum et neque. Quisque vel tellus vitae ipsum suscipit posuere ac eu mi. Nunc eu eros turpis. Vivamus ac dolor sit amet sapien faucibus fringilla sed nec dolor. Curabitur maximus condimentum quam, quis volutpat mi elementum ac. Maecenas porta velit ut auctor luctus. Donec fermentum diam at justo aliquet, non tincidunt ipsum suscipit.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec vitae viverra erat, id varius urna. Maecenas ullamcorper nisl ac magna cursus aliquam eget vel arcu. Nullam iaculis feugiat fermentum. Nulla ut lacus eget turpis faucibus finibus fermentum nec nisi. Vestibulum faucibus molestie lobortis. Morbi eu leo vestibulum, condimentum risus non, interdum metus. Mauris tristique finibus nulla nec rhoncus. In vitae ante convallis, porta ipsum quis, eleifend felis. Nulla odio lacus, blandit congue ante in, tempus tristique augue. Pellentesque lacinia leo libero. Praesent tincidunt diam in egestas luctus. Vivamus porttitor tincidunt nibh, ut tincidunt justo pulvinar eu. Sed dignissim lectus vel ullamcorper sollicitudin. Proin accumsan non diam sit amet rutrum. Nulla sagittis sapien ac justo tempus, nec varius dui congue.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Maecenas venenatis aliquam porttitor. Donec vitae tristique tellus. Donec pulvinar eget turpis quis ultrices. Donec quis mi sed purus laoreet efficitur quis ut urna. Donec viverra vitae nisl a tempus. Nullam vulputate ultrices velit, eu faucibus dolor aliquet vitae. Donec tempus posuere sapien ac ornare. Curabitur condimentum orci at ligula euismod, at mollis enim lacinia. Integer eget lorem eget augue ullamcorper porta.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Donec gravida malesuada leo vel fringilla. Suspendisse justo libero, imperdiet at molestie non, viverra sed nisl. Nulla sit amet elit odio. Cras feugiat leo at ante dignissim, id imperdiet massa lacinia. Sed facilisis est nec vulputate volutpat. Nulla justo orci, eleifend a suscipit dictum, commodo non nulla. Mauris id elit ac sem pellentesque porttitor. Quisque est nunc, aliquet vitae molestie a, rutrum nec est. Proin id ex dolor. Duis interdum tempus odio, eget ultricies sem tincidunt eget.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Aenean et aliquet orci. Maecenas ut rutrum velit. Duis eu elementum diam, et hendrerit tellus. Duis luctus elit ac nibh consequat, et bibendum libero porttitor. Donec placerat porttitor mauris sit amet aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer non dictum orci. Aliquam facilisis eu mi vitae commodo. Quisque a porttitor orci, et semper odio. Donec felis arcu, molestie non justo vel, fermentum condimentum nulla. Donec velit enim, tempor sit amet tellus sit amet, commodo ullamcorper diam. In eros arcu, elementum ut nibh eu, fringilla mollis mi. Duis nunc augue, porttitor et iaculis nec, volutpat sit amet diam. Nam nibh massa, consectetur quis laoreet vitae, sodales vitae magna.</a>
+    <br class="unselectable">
+    <br class="unselectable">
+    <a>Pellentesque quam diam, tincidunt id ligula ac, rutrum convallis elit. Sed eget lectus vel orci viverra finibus. Nam suscipit vel nibh et posuere. Nulla tempus quam ut ipsum iaculis, ut cursus ex luctus. Praesent ornare luctus tellus, at egestas neque maximus ac. Nullam leo neque, hendrerit eu convallis non, molestie at lacus. Nullam accumsan pulvinar placerat. Vestibulum sed facilisis risus, eget dignissim eros. Donec cursus commodo massa.</a>
+  </div>
+</div>
+</section>
+
+  <!-- [END] 'main web design' -->
+
+  <!-- [START] 'footer' -->
+
+<div class="empty">
+  <br class="unselectable">
+  <br class="unselectable">
+</div>
+
+<div class="footer">
+  <h1 class="footerText unselectable">Footer, of niet dan?</h1>
+</div>
+
+  <!-- [END] 'footer' -->
+
+</body> 
+</html> 
