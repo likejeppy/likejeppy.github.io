@@ -1,37 +1,17 @@
-/* All the page colours can be edited here.
-
-   -The cookie pupop colours can be edited in the original .html file 
-   on the function: 'changeCookies'.
-
-   -The size of the navbar when scrolling down 
-   can be changed on the function: 'addSmall'.
-*/
-
 body {
   margin: 0;
   font-size: 25px;
   color: rgb(3,3,3);
-  background-color: #0d161c; /* page color (light mode) */
+  background-color: #0d161c;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn { /* button color (light mode) */
+.btn {
   border: none; border-width:1px; /* change 'none' to 'solid' to add border */
   padding: 14px 28px;
   cursor: pointer; 
   background-color: #15232b; color: rgb(255,255,255);}
   .btn:hover {background-color: #273239; /* button color on hover (light mode) */
-}
-
-.mainTextDark { /* text style of text with 'mainTextDark' class (dark mode) */
-  color: rgb(255,255,255);
-  font-size: 1.5em;  /* similar to <h2> */
-  font-weight: bolder; /* similar to <h2> */
-}
-
-.secondaryTextDark { /* text style of text with 'secondaryTextDark' class (dark mode) */
-  color: #ffffff;
-  font-size: 1.0em; /* similar to <p> */
 }
 
 .unselectable { /* class to make text unselectable */
@@ -202,10 +182,9 @@ section {
   margin-bottom: 35px;
 }
 .footer { /* footer style (dark mode) */
-  position: relative;
-  height: auto;
-  margin-top: 27%;
+  height: auto; 
   background-color: #0d161c;
+  position: static;
   bottom: 0;
   width: auto;
   min-width: 100%;

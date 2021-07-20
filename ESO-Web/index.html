@@ -14,232 +14,7 @@
     <script src="script.js"></script>
   </head>
 
-<body onload="changeActive()"> 
-
-  <!-- [START] 'dark/light mode preset' -->
-
-  <script>function checkMode() {
-        var mode= localStorage.getItem('webdownloadDarkMode');
-        if(mode === 'True') {
-      document.getElementById('buttonSwitchModesId').click();}}
-  </script>
-
-  <script>function changeDarkMode() {
-    if(modeSwitched == false) /* dark mode */ {
-      localStorage.setItem('webdownloadDarkMode', "True");
-    }else /* light mode */{
-      localStorage.setItem('webdownloadDarkMode', "False");
-    }}
-  </script>
-
-  <script>
-  window.onbeforeunload = function() {
-    changeDarkMode();
-}
-  </script>
-
-  <script>function darkLightToggle() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");} 
-    </script>
-
-    <script>function toggleArticle()
-    {const artClass = document.getElementsByClassName('article');
-      for (i = 0; i < artClass.length; i++) {
-      artClass[i].classList.toggle("articleDark");}
-    }
-   </script>
-
-    <script>function switchMainText()
-    {const mainTClass = document.getElementsByClassName('mainTextLight');
-      for (i = 0; i < mainTClass.length; i++) {
-      mainTClass[i].classList.toggle("mainTextDark");}
-    }
-  </script>
-
-    <script>function switchSecondaryText()
-    {const secTClass = document.getElementsByClassName('secondaryTextLight');
-      for (i = 0; i < secTClass.length; i++) {
-      secTClass[i].classList.toggle("secondaryTextDark");}
-    }
-  </script>
-
-  <script>
-    var modeSwitched = false;
-  </script>
-  <script>function bName() {var buttonText = "Dark Mode"
-    if(modeSwitched == false)                // d = dark, l = light
-      {buttonText = "Dark Mode", modeSwitched = true;} //switched to d mode
-    else {buttonText = "Light Mode", modeSwitched = false;} //switched to l mode
-      document.getElementById("buttonSwitchModesId").innerHTML = buttonText};
-  </script>
-
-  <script>function switchBtn()
-    {const buttonElement = document.getElementsByClassName('btn');
-      for (i = 0; i < buttonElement.length; i++) { 
-      buttonElement[i].classList.toggle("toDark");}
-    }
-  </script>
-
-   <script>function switchHeader() {
-  const head = document.getElementsByClassName('headerL');
-      for (i = 0; i < head.length; i++) {
-      head[i].classList.toggle("headerD");}
-
-  const headText = document.getElementsByClassName('headerTextL');
-      for (i = 0; i < headText.length; i++) {
-      headText[i].classList.toggle("headerTextD");}      
-}</script>
-
-   <script>function switchFooter() {
-  const foot = document.getElementsByClassName('footerL');
-      for (i = 0; i < foot.length; i++) {
-      foot[i].classList.toggle("footerD");}
-
-  const footText = document.getElementsByClassName('footerTextL');
-      for (i = 0; i < footText.length; i++) {
-      footText[i].classList.toggle("footerTextD");}      
-}</script>
-
-<script>function addSmall(){ /* function to make navbar smaller on scroll*/
-  const navbar = document.getElementsByClassName('nBar');
-      for (i = 0; i < navbar.length; i++) {
-      navbar[i].style.fontSize = "85%";}
-}
-</script>
-
-<script>function removeSmall(){/*function to make navbar big again on top*/
-  const navbar = document.getElementsByClassName('nBar');
-      for (i = 0; i < navbar.length; i++) {
-      navbar[i].style.fontSize = "100%";}
-}
-</script>
-
-<script>function switchNav() {
-  const bar = document.getElementsByClassName('navBarL');
-      for (i = 0; i < bar.length; i++) {
-      bar[i].classList.toggle("navBarD");}
-}</script>
-
-<script>function showDDown() {
-  const bar = document.getElementsByClassName('dropdown');
-      for (i = 0; i < bar.length; i++) {
-      bar[i].classList.toggle("dropdownShow");}
-}</script>
-
-<script>function switchDDown() {
-  const ddown = document.getElementsByClassName('dropdown-content');
-      for (i = 0; i < ddown.length; i++) {
-      ddown[i].classList.toggle("dropdown-contentDark");}
-}</script>
-
-<script>function changeArrow() {
-  const arrow = document.getElementById('arrowBtn');{
-        if (arrow.className == 'fa fa-angle-down') {
-          arrow.className = 'fa fa-angle-up';
-        }
-        else{
-          arrow.className = 'fa fa-angle-down';
-        };}}
-</script>
-
-<script>function changeActive(){
-  $("a").on("click", function(event){
-    if (event.target.className.indexOf('navBtn') >-1 && !event.target.matches('.dropbtn')) {
-      const curActive = document.getElementsByClassName('active');
-      for (i = 0; i < curActive.length; i++) {
-      curActive[i].classList.remove("active");}
-
-      const curClass = document.getElementsByClassName(event.target.className);
-      for (i = 0; i < curClass.length; i++) {
-      curClass[i].classList.add("active");}}
-})
-}
-</script>
-
-<script>function resetActive(){ /* changes the active tab to 'home' */
-  const curActive = document.getElementsByClassName('active');
-      for (i = 0; i < curActive.length; i++) {
-      curActive[i].classList.remove("active");}
-
-      const homeClass = document.getElementsByClassName('home');
-      for (i = 0; i < homeClass.length; i++) {
-      homeClass[i].classList.add("active");}
-}
-</script>
-
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function clickDDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-
-
-window.onclick = function(e) {
-  if (!e.target.matches('.DDownLink') && !e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-      showDDown();
-	  changeArrow();
-   }
-  }
-}
-</script>
-
-  <!-- [END] 'dark/light mode preset' -->
-
-
-  <!-- [START] 'info' -->
-
-<!--
-[CLASS]
-(All of these classes can be edited in the 'cookiesdarklightswitchnavbarStyle.css' file)
-
--'dark-mode' = use to toggle the webpage background to dark mode
-
--'headerL' = the header class
--'headerD' = use to toggle the header to dark mode
-
--'headerTextL' = the header text class
--'headerTextD' = use to toggle the header text to dark mode
-
--'footerL' = the footer class
--'footerD' = use to toggle the footer to dark mode
-
--'footerTextL' = the footer text class
--'footerTextD' = use to toggle the footer text to dark mode
-
--'navbarL' = the navbar class
--'navbarD' = use to toggle the navbar to dark mode
-
--'btn' = the button class. Add this to all buttons
--'toDark' = use to toggle the buttons to dark mode
-
--'mainTextLight' = add this to all the headlines and titles on the site 
--'mainTextDark' = use to toggle the main text colours to dark mode
-
--'secondaryTextLight' = add this to all the other text that's not a title or headline
--'secondaryTextDark' = use to toggle the secondary text colours to dark mode
-
--'content' = adds some padding. (not necessary!)
-
--'sticky' = class that's automatically added to the navbar when scrolling down
-
--'unselectable' = add this to make the text unselectable. 
-This can be added to anything with text and can be especially useful on buttons
-
-[ID]
--'buttonSwitchModesId' = add this id to the button that switches between dark/light mode. 
-IMPORTANT: this can only be applied to one (1) button! Also: this button cannot have 'onclick' added to it! 
-See the button with the id 'buttonSwitchModesId' for an example.
- -->
-
-  <!-- [END] 'info' -->
-
+<body> 
 
   <!-- [START] 'main web design' -->
 
@@ -387,6 +162,93 @@ function myFunction() {
 </div>
 
   <!-- [END] 'footer' -->
+
+  <!-- [START] 'scripts' -->
+
+  <script>function changeActive(){
+  $("a").on("click", function(event){
+    if (event.target.className.indexOf('navBtn') >-1 && !event.target.matches('.dropbtn')) {
+      const curActive = document.getElementsByClassName('active');
+      for (i = 0; i < curActive.length; i++) {
+      curActive[i].classList.remove("active");}
+
+      const curClass = document.getElementsByClassName(event.target.className);
+      for (i = 0; i < curClass.length; i++) {
+      curClass[i].classList.add("active");}}
+})
+}
+</script>
+
+<script>function changeArrow() {
+  const arrow = document.getElementById('arrowBtn');{
+        if (arrow.className == 'fa fa-angle-down') {
+          arrow.className = 'fa fa-angle-up';
+        }
+        else{
+          arrow.className = 'fa fa-angle-down';
+        };}}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function clickDDown() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+
+
+window.onclick = function(e) {
+  if (!e.target.matches('.DDownLink') && !e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+      showDDown();
+    changeArrow();
+   }
+  }
+}
+</script>
+
+<script>function showDDown() {
+  const bar = document.getElementsByClassName('dropdown');
+      for (i = 0; i < bar.length; i++) {
+      bar[i].classList.toggle("dropdownShow");}
+}</script>
+
+<script> /* script to keep navbar at top (has to be below navbar design) */
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbarID");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    addSmall();
+    navbar.classList.add("sticky")
+  } else {
+    removeSmall();
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+<script>function addSmall(){ /* function to make navbar smaller on scroll*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "85%";}
+}
+</script>
+
+<script>function removeSmall(){/*function to make navbar big again on top*/
+  const navbar = document.getElementsByClassName('nBar');
+      for (i = 0; i < navbar.length; i++) {
+      navbar[i].style.fontSize = "100%";}
+}
+</script>
+
+  <!-- [END] 'scripts' -->
 
 </body> 
 </html> 
