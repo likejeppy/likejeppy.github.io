@@ -1,12 +1,3 @@
-/* All the page colours can be edited here.
-
-   -The cookie pupop colours can be edited in the original .html file 
-   on the function: 'changeCookies'.
-
-   -The size of the navbar when scrolling down 
-   can be changed on the function: 'addSmall'.
-*/
-
 body {
   margin: 0;
   font-size: 25px;
